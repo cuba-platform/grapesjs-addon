@@ -382,30 +382,6 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapejshtmleditorcomponent_GrapeJsHtm
         origWarn(msg);
       };
 
-
-      // Add and beautify tooltips
-      [['sw-visibility', 'Show Borders'], ['preview', 'Preview'], ['fullscreen', 'Fullscreen'],
-       ['export-template', 'Export'], ['undo', 'Undo'], ['redo', 'Redo'],
-       ['gjs-open-import-webpage', 'Import'], ['canvas-clear', 'Clear canvas']]
-      .forEach(function(item) {
-        pn.getButton('options', item[0]).set('attributes', {title: item[1], 'data-tooltip-pos': 'bottom'});
-      });
-      [['open-sm', 'Style Manager'], ['open-layers', 'Layers'], ['open-blocks', 'Blocks']]
-      .forEach(function(item) {
-        pn.getButton('views', item[0]).set('attributes', {title: item[1], 'data-tooltip-pos': 'bottom'});
-      });
-      var titles = document.querySelectorAll('*[title]');
-
-      for (var i = 0; i < titles.length; i++) {
-        var el = titles[i];
-        var title = el.getAttribute('title');
-        title = title ? title.trim(): '';
-        if(!title)
-          break;
-        el.setAttribute('data-tooltip', title);
-        el.setAttribute('title', '');
-      }
-
       // Show borders by default
       pn.getButton('options', 'sw-visibility').set('active', 1);
 
