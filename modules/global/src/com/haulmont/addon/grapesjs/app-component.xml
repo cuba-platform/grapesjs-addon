@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<app-component xmlns="http://schemas.haulmont.com/cuba/app-component.xsd"
+               dependsOn="com.haulmont.cuba">
+    <module blocks="*"
+            name="global">
+        <artifact appJar="true"
+                  name="grapejs-global"/>
+        <property name="cuba.persistenceConfig"
+                  value="+com/haulmont/addon/grapesjs/persistence.xml"/>
+        <property name="cuba.metadataConfig"
+                  value="+com/haulmont/addon/grapesjs/metadata.xml"/>
+        <property name="cuba.viewsConfig"
+                  value="+com/haulmont/addon/grapesjs/views.xml"/>
+    </module>
+    <module blocks="core"
+            dependsOn="global"
+            name="core">
+        <artifact appJar="true"
+                  name="grapejs-core"/>
+        <property name="cuba.springContextConfig"
+                  value="+com/haulmont/addon/grapesjs/spring.xml"/>
+        <property name="cuba.mainMessagePack"
+                  value="+com.haulmont.addon.grapesjs.core"/>
+    </module>
+    <module blocks="web"
+            dependsOn="global"
+            name="web">
+        <artifact appJar="true"
+                  name="grapejs-web"/>
+        <artifact classifier="web"
+                  configuration="webcontent"
+                  ext="zip"
+                  name="grapejs-web"/>
+        <artifact configuration="themes"
+                  name="grapejs-web-themes"/>
+        <property name="cuba.springContextConfig"
+                  value="+com/haulmont/addon/grapesjs/web-spring.xml"/>
+        <property name="cuba.dispatcherSpringContextConfig"
+                  value="+com/haulmont/addon/grapesjs/web-dispatcher-spring.xml"/>
+        <property name="cuba.windowConfig"
+                  value="+com/haulmont/addon/grapesjs/web-screens.xml"/>
+        <property name="cuba.menuConfig"
+                  value="+com/haulmont/addon/grapesjs/web-menu.xml"/>
+        <property name="cuba.permissionConfig"
+                  value="+com/haulmont/addon/grapesjs/web-permissions.xml"/>
+        <property name="cuba.mainMessagePack"
+                  value="+com.haulmont.addon.grapesjs.web"/>
+    </module>
+    <module name="web-themes">
+        <artifact name="grapejs-web-themes"/>
+    </module>
+</app-component>

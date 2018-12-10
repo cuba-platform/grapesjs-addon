@@ -1,0 +1,5 @@
+@import "halo-ext";
+
+@mixin com_haulmont_addon_grapesjs {
+  @include com_haulmont_addon_grapesjs-halo-ext;
+}
