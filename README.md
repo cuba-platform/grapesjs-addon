@@ -1,9 +1,11 @@
 [![license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0) //For opensource components under Apache 2.0 license
-# GrapesJs html editor
+# GrapesJs HTML editor
 
 ## Overview
 
-GrapesJs html editor component for CUBA application. Built on [GrapeJs](https://grapesjs.com/) javascript library with webpage preset.
+GrapesJs HTML editor component for CUBA application. Built on [GrapeJs](https://grapesjs.com/) javascript library with `webpage` preset.
+
+![html-editor](img/editor.gif)
 
 ## Installation
 To add the component to your project, the following steps should be taken:
