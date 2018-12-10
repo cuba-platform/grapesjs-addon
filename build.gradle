@@ -189,7 +189,6 @@ configure(webModule) {
         compile('org.webjars.npm:grapesjs-touch:0.1.1')
         compile('org.webjars.npm:grapesjs-parser-postcss:0.1.1')
         compile('org.webjars.npm:grapesjs-preset-webpage:0.1.10')
-        compile('org.webjars:grapesjs-ckeditor:4.11.1')
         compile('org.webjars:ckeditor:4.11.1')
 
     }
