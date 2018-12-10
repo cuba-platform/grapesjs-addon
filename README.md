@@ -26,7 +26,7 @@ To add the component to your project, the following steps should be taken:
     When specifying the component version, you should select the one, which is compatible with the platform version used
     in your project.
 
-    | Platform Version | Component Version |
+    | Platform Version | Add-on Version |
     |------------------|-------------------|
     | 6.10.x           | 0.1-SNAPSHOT      |
 
