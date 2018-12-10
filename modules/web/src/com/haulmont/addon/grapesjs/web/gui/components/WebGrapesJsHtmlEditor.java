@@ -39,7 +39,7 @@ public class WebGrapesJsHtmlEditor extends WebAbstractComponent<GrapeJsHtmlEdito
 
     @Override
     public void setValue(Object value) {
-        component.setValue(value.toString());
+        component.setValue(value != null ? value.toString() : null);
     }
 
     @Override

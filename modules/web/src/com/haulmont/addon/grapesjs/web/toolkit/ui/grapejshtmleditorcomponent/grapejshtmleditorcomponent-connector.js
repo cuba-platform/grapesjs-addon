@@ -449,7 +449,8 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapejshtmleditorcomponent_GrapeJsHtm
 
 
       editor.on('change:changesCount', (component, argument) => {
-         connector.valueChanged(editor.getHtml());
+         var tmpl = editor.getHtml() + `<style>${editor.getCss()}</style>`;
+         connector.valueChanged(tmpl);
       });
 
       connector.onStateChange = function() {
