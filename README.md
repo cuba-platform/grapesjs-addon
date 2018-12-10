@@ -19,11 +19,11 @@ To add the component to your project, the following steps should be taken:
 4. Specify the coordinates of the component in the corresponding field as follows: group:name:version.
    Click *OK* to confirm the operation.
 
-    * Artifact group: *<component group>*
-    * Artifact name: *<component artifact name>*
+    * Artifact group: *com.haulmont.addon.grapesjs*
+    * Artifact name: *grapesjs-global*
     * Version: *add-on version*
 
-        When specifying the component version, you should select the one, which is compatible with the platform version used
+    When specifying the component version, you should select the one, which is compatible with the platform version used
     in your project.
 
     | Platform Version | Component Version |
