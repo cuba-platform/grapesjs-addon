@@ -28,7 +28,7 @@ To add the component to your project, the following steps should be taken:
 
     | Platform Version | Component Version |
     |------------------|-------------------|
-    | 6.10.X           | 0.1-SNAPSHOT      |
+    | 6.10.x           | 0.1-SNAPSHOT      |
 
 5. Extend application theme.
 
