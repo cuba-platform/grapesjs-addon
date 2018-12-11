@@ -2,6 +2,7 @@ package com.haulmont.addon.grapesjs.web.toolkit.ui.grapejshtmleditorcomponent;
 
 import com.haulmont.cuba.web.sys.WebJarResource;
 import com.vaadin.annotations.JavaScript;
+import com.vaadin.annotations.StyleSheet;
 import com.vaadin.ui.AbstractJavaScriptComponent;
 import elemental.json.impl.JreJsonString;
 
@@ -19,8 +20,9 @@ import elemental.json.impl.JreJsonString;
         "grapesjs-preset-webpage:dist/grapesjs-preset-webpage.min.js",
         "grapesjs-preset-webpage:dist/grapesjs-preset-webpage.min.css"
 })
-@JavaScript({"vaadin://min/ckeditor.js",
+@JavaScript({"vaadin://ckeditor/ckeditor.js",
         "grapejshtmleditorcomponent-connector.js"})
+@StyleSheet({"style.css"})
 public class GrapeJsHtmlEditorComponent extends AbstractJavaScriptComponent {
 
     public GrapeJsHtmlEditorComponent() {
