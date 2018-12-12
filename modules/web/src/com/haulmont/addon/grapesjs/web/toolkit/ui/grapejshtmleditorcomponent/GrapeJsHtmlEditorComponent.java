@@ -10,8 +10,6 @@ import elemental.json.impl.JreJsonString;
 @WebJarResource({
         "grapesjs:dist/grapes.min.js",
         "grapesjs:dist/css/grapes.min.css",
-        "toastr:build/toastr.min.js",
-        "toastr:build/toastr.min.css",
         "grapesjs-plugin-ckeditor:dist/grapesjs-plugin-ckeditor.min.js",
         "grapesjs-custom-code:dist/grapesjs-custom-code.min.js",
         "grapesjs-tabs:dist/grapesjs-tabs.min.js",
@@ -22,7 +20,7 @@ import elemental.json.impl.JreJsonString;
 })
 @JavaScript({"vaadin://ckeditor/ckeditor.js",
         "grapejshtmleditorcomponent-connector.js"})
-@StyleSheet({"style.css"})
+@StyleSheet({"vaadin://styles/grapesjs-style.css"})
 public class GrapeJsHtmlEditorComponent extends AbstractJavaScriptComponent {
 
     public GrapeJsHtmlEditorComponent() {

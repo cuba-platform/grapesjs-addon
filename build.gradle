@@ -216,7 +216,6 @@ configure(webModule) {
             exclude group: 'org.webjars.npm', module: 'keymaster'
         }
         compile('org.webjars.bower:keymaster:1.6.3')
-        compile('org.webjars.npm:toastr:2.1.4')
         compile('org.webjars.npm:grapesjs-plugin-ckeditor:0.0.9')
         compile('org.webjars.npm:grapesjs-custom-code:0.1.1')
         compile('org.webjars.npm:grapesjs-tabs:0.1.2')

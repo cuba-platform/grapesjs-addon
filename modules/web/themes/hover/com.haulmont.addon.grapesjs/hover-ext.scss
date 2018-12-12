@@ -1,40 +1,40 @@
 /* Define your theme modifications inside next mixin */
 @mixin com_haulmont_addon_grapesjs-hover-ext {
-#gjs {
+ {
 
     /* Theming */
 
     /* Primary color for the background */
-    .gjs-one-bg {
-      background-color: #fafafa !important;
+    #gjs .gjs-one-bg {
+      background-color: #fafafa ;
     }
 
     /* Secondary color for the text color */
-    .gjs-two-color {
-      color: #464646 !important;
+    #gjs .gjs-two-color {
+      color: #464646 ;
     }
 
     /* Tertiary color for the background */
-    .gjs-three-bg {
-      background-color: #fafafa !important;
+    #gjs .gjs-three-bg {
+      background-color: #fafafa ;
 
     }
 
     /* Quaternary color for the text color */
-    .gjs-four-color,
-    .gjs-four-color-h:hover {
-      color: #1b6198 !important;
+    #gjs .gjs-four-color,
+    #gjs .gjs-four-color-h:hover {
+      color: #1b6198 ;
     }
 
-    .gjs-pn-btn:hover{
-        color: #1b6198 !important;
+    #gjs .gjs-pn-btn:hover{
+        color: #1b6198 ;
     }
 
-    .gjs-pn-btn{
-        color: #464646 !important;
+    #gjs .gjs-pn-btn{
+        color: #464646 ;
     }
 
-    .gjs-pn-btn .fa, .gjs-pn-btn{
+    #gjs .gjs-pn-btn .fa, .gjs-pn-btn{
         font-size: 18px;
     }
 }
