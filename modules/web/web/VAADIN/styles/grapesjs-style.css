@@ -58,7 +58,7 @@
     }
 
     #gjs .gjs-pn-btn .fa, .gjs-pn-btn{
-        font-size: 18px;
+        font-size: 18px !important;
     }
 
     #gjs .gjs-field select{
