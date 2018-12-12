@@ -28,7 +28,7 @@ To add the component to your project, the following steps should be taken:
 
     | Platform Version | Add-on Version |
     |------------------|----------------|
-    | 6.10.x           | 0.1.2          |
+    | 6.10.x           | 0.1.3          |
 
 5. Extend application theme.
 
@@ -43,7 +43,7 @@ To use the `grapesjs` component in your screen, you need to add the special sche
         class="com.haulmont.example.web.SomeController"
         xmlns:et="http://schemas.haulmont.com/grapesjs/ui-component.xsd">
     ...
-        <et:grapesJsHtmlEditor id="dashboardId"/>
+        <et:grapesJsHtmlEditor id="htmlEditor"/>
     ...
 ```
 
