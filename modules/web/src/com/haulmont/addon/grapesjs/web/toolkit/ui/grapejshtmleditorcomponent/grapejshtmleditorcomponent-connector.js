@@ -376,6 +376,12 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapejshtmleditorcomponent_GrapeJsHtm
       editor.on('storage:load', function(e) { console.log('Loaded ', e) });
       editor.on('storage:store', function(e) { console.log('Stored ', e) });
 
+      CKEDITOR.dtd.$editable.span = 1
+      CKEDITOR.dtd.$editable.a = 1
+      CKEDITOR.dtd.$editable.strong = 1
+      CKEDITOR.dtd.$editable.b = 1
+      CKEDITOR.dtd.$editable.i = 1
+      CKEDITOR.dtd.$editable.li = 1
 
       // Do stuff on load
       editor.on('load', function() {
