@@ -1,6 +1,6 @@
 package com.haulmont.addon.grapesjs.web.toolkit.ui.grapejshtmleditorcomponent;
 
-import com.haulmont.cuba.web.sys.WebJarResource;
+import com.haulmont.cuba.web.widgets.WebJarResource;
 import com.vaadin.annotations.JavaScript;
 import com.vaadin.annotations.StyleSheet;
 import com.vaadin.ui.AbstractJavaScriptComponent;
@@ -8,6 +8,7 @@ import elemental.json.impl.JreJsonString;
 
 
 @WebJarResource({
+        "jquery:jquery.min.js",
         "grapesjs:dist/grapes.min.js",
         "grapesjs:dist/css/grapes.min.css",
         "grapesjs-plugin-ckeditor:dist/grapesjs-plugin-ckeditor.min.js",

@@ -7,7 +7,7 @@ import com.haulmont.cuba.gui.xml.layout.loaders.AbstractComponentLoader;
 public class GrapesJsHtmlEditorLoader extends AbstractComponentLoader<GrapesJsHtmlEditor> {
     @Override
     public void createComponent() {
-        resultComponent = factory.createComponent(GrapesJsHtmlEditor.class);
+        resultComponent = factory.create(GrapesJsHtmlEditor.class);
         loadId(resultComponent, element);
     }
 

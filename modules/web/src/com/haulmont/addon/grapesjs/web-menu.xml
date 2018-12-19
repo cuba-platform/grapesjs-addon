@@ -2,5 +2,6 @@
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
     <menu id="application-grapesjs"
           insertBefore="administration">
+        <item screen="grapesjs_NewScreen"/>
     </menu>
 </menu-config>

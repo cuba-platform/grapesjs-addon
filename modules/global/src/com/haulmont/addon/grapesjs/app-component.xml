@@ -5,6 +5,7 @@
             name="global">
         <artifact appJar="true"
                   name="grapejs-global"/>
+        <artifact name="grapejs-core" classifier="db" ext="zip" configuration="dbscripts"/>
         <property name="cuba.persistenceConfig"
                   value="+com/haulmont/addon/grapesjs/persistence.xml"/>
         <property name="cuba.metadataConfig"
@@ -36,7 +37,7 @@
                   ext="zip"
                   name="grapejs-web"/>
         <artifact configuration="themes"
-                  name="grapejs-web-themes"/>
+                  name="grapejs-web" ext="jar"/>
         <property name="cuba.springContextConfig"
                   value="+com/haulmont/addon/grapesjs/web-spring.xml"/>
         <property name="cuba.dispatcherSpringContextConfig"
@@ -49,8 +50,5 @@
                   value="+com/haulmont/addon/grapesjs/web-permissions.xml"/>
         <property name="cuba.mainMessagePack"
                   value="+com.haulmont.addon.grapesjs.web"/>
-    </module>
-    <module name="web-themes">
-        <artifact name="grapejs-web-themes"/>
     </module>
 </app-component>
