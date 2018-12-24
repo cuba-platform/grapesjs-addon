@@ -1,79 +1,39 @@
 /* Define your theme modifications inside next mixin */
 @mixin com_haulmont_addon_grapesjs-hover-ext {
-    .nl-link {
-      color: inherit;
-    }
-    .info-link {
-      text-decoration: none;
-    }
-    #info-cont {
-      line-height: 17px;
-    }
-    .grapesjs-logo {
-      display: block;
-      height: 90px;
-      margin: 0 auto;
-      width: 90px;
-    }
-    .grapesjs-logo path{
-      stroke: #eee !important;
-      stroke-width: 8 !important;
-    }
 
-    #toast-container {
-      font-size: 13px;
-      font-weight: lighter;
-    }
-    #toast-container > div,
-    #toast-container > div:hover{
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-      font-family: Helvetica, sans-serif;
-    }
-    #toast-container > div{
-      opacity: 0.95;
-    }
-
-    /* We can remove the border we've set at the beginnig */
-    #gjs {
-      border: none;
-    }
     /* Theming */
 
     /* Primary color for the background */
-    .gjs-one-bg {
-      background-color: #fafafa !important;
+    #gjs .gjs-one-bg {
+      background-color: #fafafa ;
     }
 
     /* Secondary color for the text color */
-    .gjs-two-color {
-      color: #464646 !important;
+    #gjs .gjs-two-color {
+      color: #464646 ;
     }
 
     /* Tertiary color for the background */
-    .gjs-three-bg {
-      background-color: #fafafa !important;
+    #gjs .gjs-three-bg {
+      background-color: #fafafa ;
 
     }
 
     /* Quaternary color for the text color */
-    .gjs-four-color,
-    .gjs-four-color-h:hover {
-      color: #1b6198 !important;
+    #gjs .gjs-four-color,
+    #gjs .gjs-four-color-h:hover {
+      color: #1b6198 ;
     }
 
-    .gjs-pn-btn:hover{
-        color: #1b6198 !important;
+    #gjs .gjs-pn-btn:hover{
+        color: #1b6198 ;
     }
 
-    .gjs-pn-btn{
-        color: #464646 !important;
+    #gjs .gjs-pn-btn{
+        color: #464646 ;
     }
 
-    .gjs-pn-btn .fa, .gjs-pn-btn{
+    #gjs .gjs-pn-btn .fa, .gjs-pn-btn{
         font-size: 18px;
-    }
-
-    .gjs-field select{
-        background-image: none;
     }
 }

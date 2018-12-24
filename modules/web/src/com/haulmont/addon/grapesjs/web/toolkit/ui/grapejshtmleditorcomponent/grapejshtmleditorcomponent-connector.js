@@ -56,8 +56,9 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapejshtmleditorcomponent_GrapeJsHtm
             modalImportContent: function(editor) {
               return editor.getHtml() + '<style>'+editor.getCss()+'</style>'
             },
-            filestackOpts: null,
+            filestackOpts: false,
             aviaryOpts: false,
+            countdownOpts: false,
             blocksBasicOpts: { flexGrid: 1 },
             customStyleManager: [{
               name: 'General',
@@ -367,21 +368,6 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapejshtmleditorcomponent_GrapeJsHtm
         }
       });
 
-      // Simple warn notifier
-      var origWarn = console.warn;
-      toastr.options = {
-        closeButton: true,
-        preventDuplicates: true,
-        showDuration: 250,
-        hideDuration: 150
-      };
-      console.warn = function (msg) {
-        if (msg.indexOf('[undefined]') == -1) {
-          toastr.warning(msg);
-        }
-        origWarn(msg);
-      };
-
       // Show borders by default
       pn.getButton('options', 'sw-visibility').set('active', 1);
 
@@ -390,6 +376,12 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapejshtmleditorcomponent_GrapeJsHtm
       editor.on('storage:load', function(e) { console.log('Loaded ', e) });
       editor.on('storage:store', function(e) { console.log('Stored ', e) });
 
+      CKEDITOR.dtd.$editable.span = 1
+      CKEDITOR.dtd.$editable.a = 1
+      CKEDITOR.dtd.$editable.strong = 1
+      CKEDITOR.dtd.$editable.b = 1
+      CKEDITOR.dtd.$editable.i = 1
+      CKEDITOR.dtd.$editable.li = 1
 
       // Do stuff on load
       editor.on('load', function() {
@@ -400,23 +392,6 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapejshtmleditorcomponent_GrapeJsHtm
         openTmBtn && openTmBtn.set('active', 1);
         var openSm = pn.getButton('views', 'open-sm');
         openSm && openSm.set('active', 1);
-
-        // Add Settings Sector
-        var traitsSector = $('<div class="gjs-sm-sector no-select">'+
-          '<div class="gjs-sm-title"><span class="icon-settings fa fa-cog"></span> Settings</div>' +
-          '<div class="gjs-sm-properties" style="display: none;"></div></div>');
-        var traitsProps = traitsSector.find('.gjs-sm-properties');
-        traitsProps.append($('.gjs-trt-traits'));
-        $('.gjs-sm-sectors').before(traitsSector);
-        traitsSector.find('.gjs-sm-title').on('click', function(){
-          var traitStyle = traitsProps.get(0).style;
-          var hidden = traitStyle.display == 'none';
-          if (hidden) {
-            traitStyle.display = 'block';
-          } else {
-            traitStyle.display = 'none';
-          }
-        });
 
         // Open block manager
         var openBlocksBtn = editor.Panels.getButton('views', 'open-blocks');

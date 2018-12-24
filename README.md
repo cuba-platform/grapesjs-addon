@@ -39,9 +39,9 @@ To install the component in your project do the following steps:
 
 Specify the add-on version compatible with the used version of the CUBA platform.
 
-| Platform Version | Add-on Version    |
-|------------------|-------------------|
-| 6.10.x           | 0.1-SNAPSHOT      |
+    | Platform Version | Add-on Version |
+    |------------------|----------------|
+    | 6.10.x           | 0.1.5          |
 
 5. Click **OK** to save the project properties.
 
@@ -59,7 +59,7 @@ Look at the example of usage:
         class="com.haulmont.example.web.SomeController"
         xmlns:et="http://schemas.haulmont.com/grapesjs/ui-component.xsd">
     ...
-        <et:grapesJsHtmlEditor id="dashboardId"/>
+        <et:grapesJsHtmlEditor id="htmlEditor"/>
     ...
 ```
 
