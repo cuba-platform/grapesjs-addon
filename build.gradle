@@ -18,7 +18,7 @@ buildscript {
     }
 }
 
-def modulePrefix = 'grapejs'
+def modulePrefix = 'grapesjs'
 
 def globalModule = project(":${modulePrefix}-global")
 def coreModule = project(":${modulePrefix}-core")
