@@ -39,9 +39,9 @@ To install the component in your project do the following steps:
 
 Specify the add-on version compatible with the used version of the CUBA platform.
 
-    | Platform Version | Add-on Version |
-    |------------------|----------------|
-    | 6.10.x           | 0.1.5          |
+| Platform Version | Add-on Version |
+|------------------|----------------|
+| 6.10.x           | 0.1.5          |
 
 5. Click **OK** to save the project properties.
 
@@ -73,7 +73,7 @@ You can add, set and delete elements from the canvas. In addition, you can impor
 
 After opening the editor in your project you can see the **Blocks** tab. The following elements are enabled for adding:
 
-- in the **Basic** section
+in the **Basic** section
  - **Columns** (1,2 or 3);
  - **Text**;
  - **Image**;
@@ -82,14 +82,13 @@ After opening the editor in your project you can see the **Blocks** tab. The fol
  - **Link block**;
  - **Text section**;
 
-
-- in the **Extra** section
+in the **Extra** section
  - **Navbar**;
  - **Tabs**;
  - **Custom code**;
 
 
-- in the **Forms** section;
+in the **Forms** section;
  - **Form**;
  - **Input**;
  - **Text area**;
