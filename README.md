@@ -3,7 +3,7 @@
 
 ## Overview
 
-GrapesJs HTML editor component for CUBA application. Built on [GrapeJs](https://grapesjs.com/) javascript library with `webpage` preset.
+GrapesJs HTML editor component for CUBA application. Built on [GrapesJs](https://grapesjs.com/) javascript library with `webpage` preset.
 
 ![html-editor](img/editor.gif)
 

@@ -1,4 +1,4 @@
-package com.haulmont.addon.grapesjs.web.toolkit.ui.grapejshtmleditorcomponent;
+package com.haulmont.addon.grapesjs.web.toolkit.ui.grapesjshtmleditorcomponent;
 
 import com.haulmont.cuba.web.sys.WebJarResource;
 import com.vaadin.annotations.JavaScript;
@@ -19,11 +19,11 @@ import elemental.json.impl.JreJsonString;
         "grapesjs-preset-webpage:dist/grapesjs-preset-webpage.min.css"
 })
 @JavaScript({"vaadin://ckeditor/ckeditor.js",
-        "grapejshtmleditorcomponent-connector.js"})
+        "grapesjshtmleditorcomponent-connector.js"})
 @StyleSheet({"vaadin://styles/grapesjs-style.css"})
-public class GrapeJsHtmlEditorComponent extends AbstractJavaScriptComponent {
+public class GrapesJsHtmlEditorComponent extends AbstractJavaScriptComponent {
 
-    public GrapeJsHtmlEditorComponent() {
+    public GrapesJsHtmlEditorComponent() {
         addFunction("valueChanged", arguments -> {
             JreJsonString data = arguments.get(0);
             String value = data.getString();
@@ -44,13 +44,13 @@ public class GrapeJsHtmlEditorComponent extends AbstractJavaScriptComponent {
     }
 
     @Override
-    protected GrapeJsHtmlEditorComponentState getState() {
-        return (GrapeJsHtmlEditorComponentState) super.getState();
+    protected GrapesJsHtmlEditorComponentState getState() {
+        return (GrapesJsHtmlEditorComponentState) super.getState();
     }
 
     @Override
-    protected GrapeJsHtmlEditorComponentState getState(boolean markAsDirty) {
-        return (GrapeJsHtmlEditorComponentState) super.getState(markAsDirty);
+    protected GrapesJsHtmlEditorComponentState getState(boolean markAsDirty) {
+        return (GrapesJsHtmlEditorComponentState) super.getState(markAsDirty);
     }
 
     public String getHtml() {

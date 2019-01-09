@@ -1,4 +1,4 @@
-com_haulmont_addon_grapesjs_web_toolkit_ui_grapejshtmleditorcomponent_GrapeJsHtmlEditorComponent = function() {
+com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsHtmlEditorComponent = function() {
      var connector = this;
      var element = connector.getElement();
      var state = connector.getState();

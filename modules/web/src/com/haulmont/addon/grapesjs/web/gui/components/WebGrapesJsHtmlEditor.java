@@ -1,21 +1,21 @@
 package com.haulmont.addon.grapesjs.web.gui.components;
 
-import com.haulmont.addon.grapesjs.web.toolkit.ui.grapejshtmleditorcomponent.GrapeJsHtmlEditorComponent;
+import com.haulmont.addon.grapesjs.web.toolkit.ui.grapesjshtmleditorcomponent.GrapesJsHtmlEditorComponent;
 import com.haulmont.chile.core.model.utils.InstanceUtils;
 import com.haulmont.cuba.gui.components.compatibility.ComponentValueListenerWrapper;
 import com.haulmont.cuba.gui.data.ValueListener;
 import com.haulmont.cuba.web.gui.components.WebAbstractComponent;
 
-public class WebGrapesJsHtmlEditor extends WebAbstractComponent<GrapeJsHtmlEditorComponent> implements GrapesJsHtmlEditor {
+public class WebGrapesJsHtmlEditor extends WebAbstractComponent<GrapesJsHtmlEditorComponent> implements GrapesJsHtmlEditor {
 
     protected String prevValue;
 
     public WebGrapesJsHtmlEditor() {
-        this.component = new GrapeJsHtmlEditorComponent();
+        this.component = new GrapesJsHtmlEditorComponent();
         attachValueListener(this.component);
     }
 
-    protected void attachValueListener(GrapeJsHtmlEditorComponent component) {
+    protected void attachValueListener(GrapesJsHtmlEditorComponent component) {
         component.setListener(vEvent -> {
             final String value = getValue();
             final String oldValue = prevValue;
