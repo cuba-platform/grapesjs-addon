@@ -6,6 +6,10 @@ import com.vaadin.annotations.StyleSheet;
 import com.vaadin.ui.AbstractJavaScriptComponent;
 import elemental.json.impl.JreJsonString;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
 
 @WebJarResource({
         "jquery:jquery.min.js",
@@ -93,6 +97,10 @@ public class GrapeJsHtmlEditorComponent extends AbstractJavaScriptComponent {
 
     public void setFileUploadListener(FileUploadListener fileUploadListener) {
         this.fileUploadListener = fileUploadListener;
+    }
+
+    public void setDisabledBlocks(Collection<String> disabledBlocks) {
+        getState(false).disabledBlocks = disabledBlocks != null ? new ArrayList<>(disabledBlocks) : Collections.emptyList();
     }
 
 }

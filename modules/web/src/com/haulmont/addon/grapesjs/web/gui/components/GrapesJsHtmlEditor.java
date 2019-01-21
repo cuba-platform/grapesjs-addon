@@ -7,4 +7,8 @@ import java.util.Collection;
 
 public interface GrapesJsHtmlEditor extends Component, Component.BelongToFrame, HasValue<String> {
     String NAME = "grapesJsHtmlEditor";
+
+    void setDisabledBlocks(Collection<String> disabledBlocks);
+
+    Collection<String> getDisabledBlocks();
 }

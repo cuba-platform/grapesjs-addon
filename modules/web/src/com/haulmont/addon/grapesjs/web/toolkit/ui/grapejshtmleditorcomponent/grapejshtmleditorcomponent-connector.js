@@ -362,7 +362,7 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapejshtmleditorcomponent_GrapeJsHtm
       var pn = editor.Panels;
       var modal = editor.Modal;
       editor.Commands.add('canvas-clear', function() {
-        if(confirm('Areeee you sure to clean the canvas?')) {
+        if(confirm('Are you sure to clean the canvas?')) {
           var comps = editor.DomComponents.clear();
           setTimeout(function(){ localStorage.clear()}, 0)
         }
@@ -398,6 +398,9 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapejshtmleditorcomponent_GrapeJsHtm
         openBlocksBtn && openBlocksBtn.set('active', 1);
       });
 
+      connector.getState().disabledBlocks.forEach(function(entry) {
+        editor.BlockManager.getAll().remove(entry);
+      });
 
       editor.on('change:changesCount', (component, argument) => {
          var tmpl = editor.getHtml() + `<style>${editor.getCss()}</style>`;

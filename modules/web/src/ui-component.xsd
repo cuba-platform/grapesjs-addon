@@ -10,6 +10,7 @@
             <xs:complexContent>
                 <xs:extension base="layout:baseComponent">
                     <xs:sequence>
+                        <xs:element name="disabledBlocks" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
                     </xs:sequence>
                 </xs:extension>
             </xs:complexContent>
