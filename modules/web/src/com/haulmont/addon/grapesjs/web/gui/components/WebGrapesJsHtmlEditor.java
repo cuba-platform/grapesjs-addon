@@ -5,11 +5,13 @@ import com.haulmont.bali.events.Subscription;
 import com.haulmont.chile.core.model.utils.InstanceUtils;
 import com.haulmont.cuba.web.gui.components.WebAbstractComponent;
 
+import java.util.Collection;
 import java.util.function.Consumer;
 
 public class WebGrapesJsHtmlEditor extends WebAbstractComponent<GrapeJsHtmlEditorComponent> implements GrapesJsHtmlEditor {
 
     protected String prevValue;
+    protected Collection<String> disabledBlocks;
 
     public WebGrapesJsHtmlEditor() {
         this.component = new GrapeJsHtmlEditorComponent();
@@ -51,5 +53,16 @@ public class WebGrapesJsHtmlEditor extends WebAbstractComponent<GrapeJsHtmlEdito
     @Override
     public void removeValueChangeListener(Consumer<ValueChangeEvent<String>> listener) {
         unsubscribe(ValueChangeEvent.class, (Consumer) listener);
+    }
+
+    @Override
+    public Collection<String> getDisabledBlocks() {
+        return disabledBlocks;
+    }
+
+    @Override
+    public void setDisabledBlocks(Collection<String> disabledBlocks) {
+        this.disabledBlocks = disabledBlocks;
+        component.setDisabledBlocks(disabledBlocks);
     }
 }
