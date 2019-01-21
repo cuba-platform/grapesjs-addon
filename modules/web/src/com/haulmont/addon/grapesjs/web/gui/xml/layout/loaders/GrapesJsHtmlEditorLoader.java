@@ -32,7 +32,7 @@ public class GrapesJsHtmlEditorLoader extends AbstractComponentLoader<GrapesJsHt
         Element disabledBlocksEl = element.element("disabledBlocks");
         if (disabledBlocksEl != null) {
             String disabledBlocks = disabledBlocksEl.getTextTrim();
-            component.setDisabledBlocks(StringUtils.isNotBlank(disabledBlocks) ? Arrays.asList(disabledBlocks.split(",")) : null);
+            component.setDisabledBlocks(StringUtils.isNotBlank(disabledBlocks) ? Arrays.asList(disabledBlocks.split("\\s*,\\s*")) : null);
         }
     }
 }

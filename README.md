@@ -59,7 +59,11 @@ Look at the example of usage:
         class="com.haulmont.example.web.SomeController"
         xmlns:et="http://schemas.haulmont.com/grapesjs/ui-component.xsd">
     ...
-        <et:grapesJsHtmlEditor id="htmlEditor"/>
+        <et:grapesJsHtmlEditor id="htmlEditor">
+            <et:disabledBlocks>
+                 //comma separated panel names which should be disabled, for example "map,tabs"
+            </et:disabledBlocks>
+        </et:grapesJsHtmlEditor>
     ...
 ```
 
