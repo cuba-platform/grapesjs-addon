@@ -6,9 +6,12 @@ import com.haulmont.cuba.gui.components.compatibility.ComponentValueListenerWrap
 import com.haulmont.cuba.gui.data.ValueListener;
 import com.haulmont.cuba.web.gui.components.WebAbstractComponent;
 
+import java.util.Collection;
+
 public class WebGrapesJsHtmlEditor extends WebAbstractComponent<GrapesJsHtmlEditorComponent> implements GrapesJsHtmlEditor {
 
     protected String prevValue;
+    protected Collection<String> disabledBlocks;
 
     public WebGrapesJsHtmlEditor() {
         this.component = new GrapesJsHtmlEditorComponent();
@@ -70,5 +73,16 @@ public class WebGrapesJsHtmlEditor extends WebAbstractComponent<GrapesJsHtmlEdit
     @Override
     public void setEditable(boolean editable) {
 
+    }
+
+    @Override
+    public Collection<String> getDisabledBlocks() {
+        return disabledBlocks;
+    }
+
+    @Override
+    public void setDisabledBlocks(Collection<String> disabledBlocks) {
+        this.disabledBlocks = disabledBlocks;
+        component.setDisabledBlocks(disabledBlocks);
     }
 }
