@@ -3,7 +3,7 @@ package com.haulmont.addon.grapesjs.web.gui.xml.layout.loaders;
 import com.haulmont.addon.grapesjs.web.gui.components.GrapesJsHtmlEditor;
 import com.haulmont.cuba.gui.components.Component;
 import com.haulmont.cuba.gui.xml.layout.loaders.AbstractComponentLoader;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.dom4j.Element;
 
 import java.util.Arrays;
@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class GrapesJsHtmlEditorLoader extends AbstractComponentLoader<GrapesJsHtmlEditor> {
     @Override
     public void createComponent() {
-        resultComponent = factory.createComponent(GrapesJsHtmlEditor.class);
+        resultComponent = factory.create(GrapesJsHtmlEditor.class);
         loadId(resultComponent, element);
     }
 
@@ -32,7 +32,7 @@ public class GrapesJsHtmlEditorLoader extends AbstractComponentLoader<GrapesJsHt
         Element disabledBlocksEl = element.element("disabledBlocks");
         if (disabledBlocksEl != null) {
             String disabledBlocks = disabledBlocksEl.getTextTrim();
-            component.setDisabledBlocks(StringUtils.isNotBlank(disabledBlocks) ? Arrays.asList(disabledBlocks.split("\\s*,\\s*")) : null);
+            component.setDisabledBlocks(StringUtils.isNotBlank(disabledBlocks) ? Arrays.asList(disabledBlocks.split(",")) : null);
         }
     }
 }

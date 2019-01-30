@@ -3,12 +3,12 @@
            attributeFormDefault="unqualified"
            elementFormDefault="qualified"
            targetNamespace="http://schemas.haulmont.com/grapesjs/0.1/ui-component.xsd"
-           xmlns:cuba="http://schemas.haulmont.com/cuba/window.xsd"
+           xmlns:layout="http://schemas.haulmont.com/cuba/screen/layout.xsd"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="grapesJsHtmlEditor">
         <xs:complexType>
             <xs:complexContent>
-                <xs:extension base="cuba:baseComponent">
+                <xs:extension base="layout:baseComponent">
                     <xs:sequence>
                         <xs:element name="disabledBlocks" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
                     </xs:sequence>

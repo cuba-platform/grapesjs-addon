@@ -4,7 +4,8 @@
     <module blocks="*"
             name="global">
         <artifact appJar="true"
-                  name="grapesjs-global"/>
+                  name="grapejs-global"/>
+        <artifact name="grapejs-core" classifier="db" ext="zip" configuration="dbscripts"/>
         <property name="cuba.persistenceConfig"
                   value="+com/haulmont/addon/grapesjs/persistence.xml"/>
         <property name="cuba.metadataConfig"
@@ -16,7 +17,7 @@
             dependsOn="global"
             name="core">
         <artifact appJar="true"
-                  name="grapesjs-core"/>
+                  name="grapejs-core"/>
         <property name="cuba.springContextConfig"
                   value="+com/haulmont/addon/grapesjs/spring.xml"/>
         <property name="cuba.mainMessagePack"
@@ -24,17 +25,19 @@
         <artifact classifier="db"
                   configuration="dbscripts"
                   ext="zip"
-                  name="grapesjs-core"/>
+                  name="grapejs-core"/>
     </module>
     <module blocks="web"
             dependsOn="global"
             name="web">
         <artifact appJar="true"
-                  name="grapesjs-web"/>
+                  name="grapejs-web"/>
         <artifact classifier="web"
                   configuration="webcontent"
                   ext="zip"
-                  name="grapesjs-web"/>
+                  name="grapejs-web"/>
+        <artifact configuration="themes"
+                  name="grapejs-web" ext="jar"/>
         <property name="cuba.springContextConfig"
                   value="+com/haulmont/addon/grapesjs/web-spring.xml"/>
         <property name="cuba.dispatcherSpringContextConfig"

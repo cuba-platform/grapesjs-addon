@@ -1,12 +1,12 @@
 package com.haulmont.addon.grapesjs.web.gui.components;
 
 import com.haulmont.addon.grapesjs.web.toolkit.ui.grapesjshtmleditorcomponent.GrapesJsHtmlEditorComponent;
+import com.haulmont.bali.events.Subscription;
 import com.haulmont.chile.core.model.utils.InstanceUtils;
-import com.haulmont.cuba.gui.components.compatibility.ComponentValueListenerWrapper;
-import com.haulmont.cuba.gui.data.ValueListener;
 import com.haulmont.cuba.web.gui.components.WebAbstractComponent;
 
 import java.util.Collection;
+import java.util.function.Consumer;
 
 public class WebGrapesJsHtmlEditor extends WebAbstractComponent<GrapesJsHtmlEditorComponent> implements GrapesJsHtmlEditor {
 
@@ -30,7 +30,7 @@ public class WebGrapesJsHtmlEditor extends WebAbstractComponent<GrapesJsHtmlEdit
                 }
 
                 ValueChangeEvent event = new ValueChangeEvent(this, oldValue, value);
-                getEventRouter().fireEvent(ValueChangeListener.class, ValueChangeListener::valueChanged, event);
+                getEventHub().publish(ValueChangeEvent.class, event);
             }
         });
     }
@@ -41,38 +41,18 @@ public class WebGrapesJsHtmlEditor extends WebAbstractComponent<GrapesJsHtmlEdit
     }
 
     @Override
-    public void setValue(Object value) {
-        component.setValue(value != null ? value.toString() : null);
+    public void setValue(String value) {
+        component.setValue(value);
     }
 
     @Override
-    public void addListener(ValueListener listener) {
-        addValueChangeListener(new ComponentValueListenerWrapper(listener));
+    public Subscription addValueChangeListener(Consumer<ValueChangeEvent<String>> listener) {
+        return getEventHub().subscribe(ValueChangeEvent.class, (Consumer) listener);
     }
 
     @Override
-    public void removeListener(ValueListener listener) {
-        removeValueChangeListener(new ComponentValueListenerWrapper(listener));
-    }
-
-    @Override
-    public void addValueChangeListener(ValueChangeListener listener) {
-        getEventRouter().addListener(ValueChangeListener.class, listener);
-    }
-
-    @Override
-    public void removeValueChangeListener(ValueChangeListener listener) {
-        getEventRouter().removeListener(ValueChangeListener.class, listener);
-    }
-
-    @Override
-    public boolean isEditable() {
-        return true;
-    }
-
-    @Override
-    public void setEditable(boolean editable) {
-
+    public void removeValueChangeListener(Consumer<ValueChangeEvent<String>> listener) {
+        unsubscribe(ValueChangeEvent.class, (Consumer) listener);
     }
 
     @Override
