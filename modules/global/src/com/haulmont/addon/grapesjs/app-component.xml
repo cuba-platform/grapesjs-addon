@@ -35,8 +35,6 @@
                   configuration="webcontent"
                   ext="zip"
                   name="grapesjs-web"/>
-        <artifact configuration="themes"
-                  name="grapesjs-web-themes"/>
         <property name="cuba.springContextConfig"
                   value="+com/haulmont/addon/grapesjs/web-spring.xml"/>
         <property name="cuba.dispatcherSpringContextConfig"
@@ -49,8 +47,5 @@
                   value="+com/haulmont/addon/grapesjs/web-permissions.xml"/>
         <property name="cuba.mainMessagePack"
                   value="+com.haulmont.addon.grapesjs.web"/>
-    </module>
-    <module name="web-themes">
-        <artifact name="grapesjs-web-themes"/>
     </module>
 </app-component>
