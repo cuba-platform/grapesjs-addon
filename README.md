@@ -41,7 +41,7 @@ Specify the add-on version compatible with the used version of the CUBA platform
 
 | Platform Version | Add-on Version |
 |------------------|----------------|
-| 6.10.x           | 0.1.7          |
+| 6.10.x           | 0.1.8          |
 
 5. Click **OK** to save the project properties.
 
