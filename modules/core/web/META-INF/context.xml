@@ -8,7 +8,7 @@
       maxIdle="2"
       maxWaitMillis="5000"
       driverClassName="org.hsqldb.jdbc.JDBCDriver"
-      url="jdbc:hsqldb:hsql://localhost/grapesjs"
+      url="jdbc:hsqldb:hsql://localhost:9010/grapesjs"
       username="sa"
       password=""/>
 
