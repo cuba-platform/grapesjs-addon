@@ -365,6 +365,8 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
         if(confirm('Are you sure to clean the canvas?')) {
           var comps = editor.DomComponents.clear();
           setTimeout(function(){ localStorage.clear()}, 0)
+          var tmpl = editor.getHtml() + `<style>${editor.getCss()}</style>`;
+          connector.valueChanged(tmpl);
         }
       });
 
@@ -403,6 +405,16 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
       });
 
       editor.on('change:changesCount', (component, argument) => {
+         var tmpl = editor.getHtml() + `<style>${editor.getCss()}</style>`;
+         connector.valueChanged(tmpl);
+      });
+
+      editor.on('undo', (component, argument) => {
+         var tmpl = editor.getHtml() + `<style>${editor.getCss()}</style>`;
+         connector.valueChanged(tmpl);
+      });
+
+      editor.on('redo', (component, argument) => {
          var tmpl = editor.getHtml() + `<style>${editor.getCss()}</style>`;
          connector.valueChanged(tmpl);
       });
