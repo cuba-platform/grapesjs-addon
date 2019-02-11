@@ -13,7 +13,7 @@
 
 # 1.Overview <a name="overview"></a>
 
-The component provides using GrapesJS HTML editor in your CUBA application. It is built on [GrapeJs](https://grapesjs.com/) javascript library with `webpage` preset.
+The component provides using GrapesJS HTML editor in your CUBA application. It is built on [GrapesJs](https://grapesjs.com/) javascript library with `webpage` preset.
 
 ![html-editor](img/editor.gif)
 

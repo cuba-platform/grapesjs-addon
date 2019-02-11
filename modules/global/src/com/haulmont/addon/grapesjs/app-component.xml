@@ -1,54 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <app-component xmlns="http://schemas.haulmont.com/cuba/app-component.xsd"
                dependsOn="com.haulmont.cuba">
-    <module blocks="*"
-            name="global">
-        <artifact appJar="true"
-                  name="grapejs-global"/>
-        <artifact name="grapejs-core" classifier="db" ext="zip" configuration="dbscripts"/>
-        <property name="cuba.persistenceConfig"
-                  value="+com/haulmont/addon/grapesjs/persistence.xml"/>
-        <property name="cuba.metadataConfig"
-                  value="+com/haulmont/addon/grapesjs/metadata.xml"/>
-        <property name="cuba.viewsConfig"
-                  value="+com/haulmont/addon/grapesjs/views.xml"/>
+
+    <module name="global" blocks="*">
+        <artifact name="grapesjs-global" appJar="true"/>
+
+        <property name="cuba.persistenceConfig" value="+com/haulmont/addon/grapesjs/persistence.xml"/>
+        <property name="cuba.metadataConfig" value="+com/haulmont/addon/grapesjs/metadata.xml"/>
+        <property name="cuba.viewsConfig" value="+com/haulmont/addon/grapesjs/views.xml"/>
     </module>
-    <module blocks="core"
-            dependsOn="global"
-            name="core">
-        <artifact appJar="true"
-                  name="grapejs-core"/>
-        <property name="cuba.springContextConfig"
-                  value="+com/haulmont/addon/grapesjs/spring.xml"/>
-        <property name="cuba.mainMessagePack"
-                  value="+com.haulmont.addon.grapesjs.core"/>
-        <artifact classifier="db"
-                  configuration="dbscripts"
-                  ext="zip"
-                  name="grapejs-core"/>
+    <module name="core" dependsOn="global" blocks="core">
+        <artifact name="grapesjs-core" appJar="true"/>
+        <artifact name="grapesjs-core" classifier="db" ext="zip" configuration="dbscripts"/>
+
+        <property name="cuba.springContextConfig" value="+com/haulmont/addon/grapesjs/spring.xml"/>
+        <property name="cuba.mainMessagePack" value="+com.haulmont.addon.grapesjs.core"/>
     </module>
-    <module blocks="web"
-            dependsOn="global"
-            name="web">
-        <artifact appJar="true"
-                  name="grapejs-web"/>
-        <artifact classifier="web"
-                  configuration="webcontent"
-                  ext="zip"
-                  name="grapejs-web"/>
-        <artifact configuration="themes"
-                  name="grapejs-web" ext="jar"/>
-        <property name="cuba.springContextConfig"
-                  value="+com/haulmont/addon/grapesjs/web-spring.xml"/>
+    <module name="web" dependsOn="global" blocks="web">
+        <artifact name="grapesjs-web" appJar="true"/>
+        <artifact name="grapesjs-web" classifier="web" ext="zip" configuration="webcontent"/>
+        <artifact name="grapesjs-web" ext="jar" configuration="themes"/>
+
+        <property name="cuba.springContextConfig" value="+com/haulmont/addon/grapesjs/web-spring.xml"/>
         <property name="cuba.dispatcherSpringContextConfig"
                   value="+com/haulmont/addon/grapesjs/web-dispatcher-spring.xml"/>
-        <property name="cuba.windowConfig"
-                  value="+com/haulmont/addon/grapesjs/web-screens.xml"/>
-        <property name="cuba.menuConfig"
-                  value="+com/haulmont/addon/grapesjs/web-menu.xml"/>
-        <property name="cuba.permissionConfig"
-                  value="+com/haulmont/addon/grapesjs/web-permissions.xml"/>
-        <property name="cuba.mainMessagePack"
-                  value="+com.haulmont.addon.grapesjs.web"/>
+        <property name="cuba.windowConfig" value="+com/haulmont/addon/grapesjs/web-screens.xml"/>
+        <property name="cuba.menuConfig" value="+com/haulmont/addon/grapesjs/web-menu.xml"/>
+        <property name="cuba.permissionConfig" value="+com/haulmont/addon/grapesjs/web-permissions.xml"/>
+        <property name="cuba.mainMessagePack" value="+com.haulmont.addon.grapesjs.web"/>
     </module>
 </app-component>
