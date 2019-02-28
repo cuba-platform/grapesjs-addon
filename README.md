@@ -17,6 +17,8 @@ The component provides using GrapesJS HTML editor in your CUBA application. It i
 
 ![html-editor](img/editor.gif)
 
+See [sample application](https://github.com/cuba-platform/grapesjs-addon-demo), using this component.
+
 # 2. Installation <a name="installation"></a>
 
 To use the component you need to install it in your project and then add the editor to the screen. The complete add-ons installation guide see in [CUBA Platform documentation](https://doc.cuba-platform.com/manual-latest/app_components_usage.html).
@@ -27,15 +29,15 @@ To install the component in your project do the following steps:
 
 1. Open your application in CUBA Studio.
 
-2. Click **Edit** in the **Project properties** panel.
+2. Click *Edit* in the *Project properties* panel.
 
-3. On the **App components** panel click the **Plus** button next to **Custom components**.
+3. On the *App components* panel click the *Plus* button next to *Custom components*.
 
-4. Paste the add-on coordinates in the corresponding field as follows: `group:name:version`.
+4. Paste the add-on coordinates in the corresponding field as follows: *group:name:version*.
 
- - Artifact group: **com.haulmont.addon.grapesjs**;
- - Artifact name: **grapesjs-global**;
- - Version: **add-on version**.
+ - Artifact group: *com.haulmont.addon.grapesjs*;
+ - Artifact name: *grapesjs-global*;
+ - Version: *add-on version*.
 
 Specify the add-on version compatible with the used version of the CUBA platform.
 
@@ -44,9 +46,9 @@ Specify the add-on version compatible with the used version of the CUBA platform
 | 6.10.x           | 0.1.8          |
 | 7.0.x            | 0.2.0          |
 
-5. Click **OK** to save the project properties.
+5. Click *OK* to save the project properties.
 
-6. Then extend application theme, if necessary. Expand **Manage theme** and select **Create theme extension**.
+6. Then extend application theme, if necessary. Expand *Manage theme* and select *Create theme extension*.
 
 ## 2.2. Adding Editor in the Screen <a name="adding-screen"></a>
 
@@ -76,32 +78,32 @@ You can add, set and delete elements from the canvas. In addition, you can impor
 
 ## 3.1. The Blocks Tab <a name="blocks"></a>
 
-After opening the editor in your project you can see the **Blocks** tab. The following elements are enabled for adding:
+After opening the editor in your project you can see the *Blocks* tab. The following elements are enabled for adding:
 
-in the **Basic** section
- - **Columns** (1,2 or 3);
- - **Text**;
- - **Image**;
- - **Video**;
- - **Map**;
- - **Link block**;
- - **Text section**;
+in the *Basic* section
+ - *Columns* (1,2 or 3)
+ - *Text*
+ - *Image*
+ - *Video*
+ - *Map*
+ - *Link block*
+ - *Text section*
 
-in the **Extra** section
- - **Navbar**;
- - **Tabs**;
- - **Custom code**;
+in the *Extra* section
+ - *Navbar*
+ - *Tabs*
+ - *Custom code*
 
 
-in the **Forms** section;
- - **Form**;
- - **Input**;
- - **Text area**;
- - **Select**;
- - **Button**;
- - **Label**;
- - **Checkbox**;
- - **Radio**.
+in the *Forms* section
+ - *Form*
+ - *Input*
+ - *Text area*
+ - *Select*
+ - *Button*
+ - *Label*
+ - *Checkbox*
+ - *Radio*
 
 ![editor-block-manager](img/editor-block-manager.png)
 
@@ -109,35 +111,35 @@ Move elements on the canvas to add.
 
 ## 3.2. The Style Manager Tab <a name="style"></a>
 
-You can set the properties of the elements. Select the element and go to the **Style Manager** tab.
+You can set the properties of the elements. Select the element and go to the *Style Manager* tab.
 
 ![editor-style-manager](img/editor-style-manager.png)
 
 
 ## 3.3. The Trait Manager Tab <a name="trait"></a>
 
-You can define parameters of an element. Select the element and go to the **Trait Manager** tab.
+You can define parameters of an element. Select the element and go to the *Trait Manager* tab.
 
 ![editor-trait-manager](img/editor-trait-manager.png)
 
 ## 3.4. The Layers Tab <a name="layers"></a>
 
-To watch the list of elements on the canvas go to the **Layers** tab. You can hide elements on the canvas while editing.
+To watch the list of elements on the canvas go to the *Layers* tab. You can hide elements on the canvas while editing.
 
 ![editor-layers](img/editor-layers.png)
 
  ## 3.5. The Top Panel Buttons <a name="buttons"></a>
 
- The following buttons on the **Top Panel** are available:
-- the **Show borders** button;
-- the **Preview** button;
-- the **Full-screen** button;
-- the **Export** button;
-- the **Undo** button;
-- the **Redo** button;
-- the **Import** button;
-- the **Clear canvas** button;
+ The following buttons on the *Top Panel* are available:
+- the *Show borders* button
+- the *Preview* button
+- the *Full-screen* button
+- the *Export* button
+- the *Undo* button
+- the *Redo* button
+- the *Import* button
+- the *Clear canvas* button
 
-and buttons to change the screen width.
+and buttons for changing the screen width.
 
 ![editor-top-panel-buttons](img/editor-top-panel-buttons.png)
