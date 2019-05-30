@@ -16,7 +16,13 @@
 
 # 1.Overview <a name="overview"></a>
 
-The component provides using GrapesJS HTML editor in your CUBA application. It is built on [GrapesJs](https://grapesjs.com/) javascript library with `webpage` preset.
+The add-on provides a visual HTML editor based on a [GrapesJs](https://grapesjs.com/) JavaScript library with the extensive set of HTML elements. It allows building HTML templates without any knowledge of coding. All you need is to drag an element into the canvas. The wide range of options enables independent styling of any element inside the canvas.
+
+Key features:
+- Wide variety of built-in HTML elements.
+- Viewing representation for different devices.
+- Using CSS properties.
+- Downloading/uploading HTML code.
 
 ![html-editor](img/editor.gif)
 
@@ -38,11 +44,11 @@ To install the component in your project do the following steps:
 
 4. Paste the add-on coordinates in the corresponding field as follows: *group:name:version*.
 
- - Artifact group: *com.haulmont.addon.grapesjs*;
- - Artifact name: *grapesjs-global*;
- - Version: *add-on version*.
+  - Artifact group: *com.haulmont.addon.grapesjs*;
+  - Artifact name: *grapesjs-global*;
+  - Version: *add-on version*.
 
-Specify the add-on version compatible with the used version of the CUBA platform.
+ When specifying the component version, you should select the one, which is compatible with the platform version used in your project.
 
 | Platform Version | Add-on Version |
 |------------------|----------------|
