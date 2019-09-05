@@ -52,8 +52,10 @@ To install the component in your project do the following steps:
 
 | Platform Version | Add-on Version |
 |------------------|----------------|
-| 6.10.x           | 0.1.8          |
+| 7.1.x            | 0.3.0          |
 | 7.0.x            | 0.2.0          |
+| 6.10.x           | 0.1.8          |
+
 
 5. Click *OK* to save the project properties.
 
