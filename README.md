@@ -14,7 +14,7 @@
   - [3.4. The Layers Tab](#layers)
   - [3.5. The Top Panel Buttons](#buttons)
   - [3.6. UI components](#components)
-  - [3.7. Custom blocks](#blocks)
+  - [3.7. Custom blocks](#custom-blocks)
 
 # 1.Overview <a name="overview"></a>
 
@@ -223,7 +223,7 @@ Example:
 </et:grapesJsNewsletterHtmlEditor>
 ```
 
- ## 3.7. Custom blocks <a name="blocks"></a>
+ ## 3.7. Custom blocks <a name="custom-blocks"></a>
  
  Custom blocks can be added to the component using `block` tag with the following parameters:
  - *name* - unique block id
