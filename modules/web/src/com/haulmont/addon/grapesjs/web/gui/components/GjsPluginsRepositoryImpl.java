@@ -52,11 +52,11 @@ public class GjsPluginsRepositoryImpl implements GjsPluginsRepository {
 
     @Override
     public GjsPlugin getPlugin(String pluginXsdCode) {
-        return registeredPlugins.get(pluginXsdCode);
+        return registeredPlugins.get(pluginXsdCode).clone();
     }
 
     @Override
     public void registerPlugin(String pluginXsdCode, GjsPlugin plugin) {
-        registeredPlugins.put(pluginXsdCode, plugin);
+        registeredPlugins.put(pluginXsdCode, plugin.clone());
     }
 }

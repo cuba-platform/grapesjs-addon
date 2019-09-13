@@ -16,6 +16,7 @@
 
 package com.haulmont.addon.grapesjs.web.toolkit.ui.grapesjshtmleditorcomponent;
 
+import com.haulmont.addon.grapesjs.web.gui.components.GjsBlock;
 import com.haulmont.addon.grapesjs.web.gui.components.GjsPlugin;
 import com.vaadin.shared.ui.JavaScriptComponentState;
 
@@ -31,5 +32,8 @@ public class GrapesJsHtmlEditorComponentState extends JavaScriptComponentState {
 
     public Collection<GjsPlugin> plugins;
 
+    public Collection<GjsBlock> blocks;
+
     public Boolean inlineCss = false;
+
 }

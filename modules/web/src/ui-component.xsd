@@ -40,6 +40,7 @@
                 <xs:sequence>
                     <xs:element name="disabledBlocks" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
                     <xs:element name="plugin" minOccurs="0" maxOccurs="unbounded" type="pluginType"/>
+                    <xs:element name="block" minOccurs="0" maxOccurs="unbounded" type="blockType"/>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -70,6 +71,18 @@
             <xs:element name="tuiImageEditor"/>
             <xs:element name="webpage"/>
         </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="blockType">
+        <xs:sequence>
+            <xs:element name="name" minOccurs="1" type="xs:string"/>
+            <xs:element name="label" minOccurs="1" type="xs:string"/>
+            <xs:element name="category" type="xs:string"/>
+            <xs:element name="content" type="xs:string"/>
+            <xs:element name="contentPath" type="xs:string"/>
+            <xs:element name="attributes" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string"/>
     </xs:complexType>
 
 </xs:schema>

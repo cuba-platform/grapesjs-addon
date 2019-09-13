@@ -27,20 +27,21 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
     };
 
     var pluginsSize = defaultConfig.plugins.length;
-    if (state.plugins!=null){
-    state.plugins.forEach(function(item, i, arr) {
-        var pluginName = item.name;
-        var pluginOptions = item.options;
-        defaultConfig.plugins[pluginsSize + i] = pluginName;
+    if (state.plugins != null) {
+        state.plugins.forEach(function(item, i, arr) {
+            var pluginName = item.name;
+            var pluginOptions = item.options;
+            defaultConfig.plugins[pluginsSize + i] = pluginName;
 
-        if (pluginOptions != null) {
-            defaultConfig.pluginsOpts[pluginName] = strictEvalFunc('('+pluginOptions+')');
-        }
-    });
+            if (pluginOptions != null) {
+                defaultConfig.pluginsOpts[pluginName] = strictEvalFunc('(' + pluginOptions + ')');
+            }
+        });
 
     }
     var editor = grapesjs.init(defaultConfig);
 
+    clear(editor);
 
     var pn = editor.Panels;
     var modal = editor.Modal;
@@ -50,7 +51,7 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
             setTimeout(function() {
                 localStorage.clear()
             }, 0)
-            var tmpl = editor.getHtml() + `<style>${editor.getCss()}</style>`;
+            var tmpl = getHtml(editor, state);
             connector.valueChanged(tmpl);
         }
     });
@@ -96,6 +97,15 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
         editor.BlockManager.getAll().remove(entry);
     });
 
+    state.blocks.forEach(function(item, i, arr) {
+        editor.BlockManager.add(item.name, {
+            label: item.label,
+            content: item.content,
+            category: item.category,
+            attributes: strictEvalFunc('(' + item.attributes + ')')
+        });
+    });
+
     editor.on('change:changesCount', (component, argument) => {
         var tmpl = getHtml(editor, state);
         connector.valueChanged(tmpl);
@@ -118,12 +128,16 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
 }
 
 function getHtml(editor, state) {
-    if (state.inlineCss){
+    if (state.inlineCss) {
         return editor.runCommand('gjs-get-inlined-html');
-    }
-    else {
+    } else {
         return editor.getHtml() + `<style>${editor.getCss()}</style>`;
     }
+}
+
+function clear(editor) {
+     var comps = editor.DomComponents.clear();
+     localStorage.clear();
 }
 
 function strictEvalFunc(code) {

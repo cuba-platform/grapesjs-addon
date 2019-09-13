@@ -39,4 +39,12 @@ public interface GrapesJsHtmlEditor extends Component, Component.BelongToFrame, 
 
     Collection<GjsPlugin> getPlugins();
 
+    Collection<GjsBlock> getCustomBlocks();
+
+    void setCustomBlocks(Collection<GjsBlock> blocks);
+
+    void addBlocks(Collection<GjsBlock> blocks);
+
+    void removeCustomBlocks(Collection<GjsBlock> blocks);
+
 }

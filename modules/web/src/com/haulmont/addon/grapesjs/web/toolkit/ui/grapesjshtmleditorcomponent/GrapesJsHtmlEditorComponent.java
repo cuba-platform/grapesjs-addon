@@ -16,6 +16,7 @@
 
 package com.haulmont.addon.grapesjs.web.toolkit.ui.grapesjshtmleditorcomponent;
 
+import com.haulmont.addon.grapesjs.web.gui.components.GjsBlock;
 import com.haulmont.addon.grapesjs.web.gui.components.GjsPlugin;
 import com.haulmont.cuba.web.widgets.WebJarResource;
 import com.vaadin.annotations.JavaScript;
@@ -93,6 +94,10 @@ public class GrapesJsHtmlEditorComponent extends AbstractJavaScriptComponent {
 
     public void setInlineCss(Boolean inlineCss) {
         getState(false).inlineCss = inlineCss;
+    }
+
+    public void setBlocks(Collection<GjsBlock> blocks) {
+        getState(false).blocks = blocks;
     }
 
     public interface ValueChangeListener {

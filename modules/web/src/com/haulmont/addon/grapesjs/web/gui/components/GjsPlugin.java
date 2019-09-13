@@ -16,11 +16,25 @@
 
 package com.haulmont.addon.grapesjs.web.gui.components;
 
-public class GjsPlugin {
+import java.io.Serializable;
 
+/**
+ * Grapes JS plugin
+ */
+public class GjsPlugin implements Serializable, Cloneable {
+
+    /**
+     * Plugin name
+     */
     protected String name;
 
+    /**
+     * Plugin options
+     */
     protected String options;
+
+    public GjsPlugin() {
+    }
 
     public GjsPlugin(String name, String options) {
         this.name = name;
@@ -41,5 +55,13 @@ public class GjsPlugin {
 
     public void setOptions(String options) {
         this.options = options;
+    }
+
+    @Override
+    public GjsPlugin clone() {
+        GjsPlugin clone = new GjsPlugin();
+        clone.setName(this.name);
+        clone.setOptions(this.options);
+        return clone;
     }
 }

@@ -13,6 +13,8 @@
   - [3.3. The Trait Manager Tab](#trait)
   - [3.4. The Layers Tab](#layers)
   - [3.5. The Top Panel Buttons](#buttons)
+  - [3.6. UI components](#components)
+  - [3.7. Custom blocks](#blocks)
 
 # 1.Overview <a name="overview"></a>
 
@@ -164,7 +166,7 @@ GrapesJs addon provides following UI components:
 
 `grapesJsNewsletterHtmlEditor` component has additional `inlineCss`. If enabled then css classes will be inlined in HTML.
 
-UI components can be extended with plugins using `plugins` tag.
+UI components can be extended with plugins using `plugin` tag.
 A plugin can be selected from a list of predefined plugins or can be configured as a new plugin.
 
 Default available plugins:
@@ -181,6 +183,8 @@ Default available plugins:
 - `touch` - this plugin enables touch support for the GrapesJS editor ([plugin documentation](https://github.com/artf/grapesjs-touch))
 - `tuiImageEditor` - add the [TOAST UI Image Editor](https://ui.toast.com/tui-image-editor/) on Image Components in GrapesJS ([plugin documentation](https://github.com/artf/grapesjs-tui-image-editor))
 - `webpage` - this preset configures GrapesJS to be used as a Webpage Builder ([plugin documentation](https://github.com/artf/grapesjs-preset-webpage))
+
+Custom project plugins can be registered via `com.haulmont.addon.grapesjs.web.gui.components.GjsPluginsRepository` class.
 
 Example:
 ```
@@ -219,3 +223,39 @@ Example:
 </et:grapesJsNewsletterHtmlEditor>
 ```
 
+ ## 3.7. Custom blocks <a name="blocks"></a>
+ 
+ Custom blocks can be added to the component using `block` tag with the following parameters:
+ - *name* - unique block id
+ - *label* - name of the block
+ - *category* - group the block inside a catgegory
+ - *content* - HTML content
+ - *contentPath* - path to HTML content 
+ - *attributes* - block attributes
+ 
+ Block example:
+ ```
+<et:block>
+	<et:name>h1-block</et:name>
+	<et:label>Heading</et:label>
+	<et:category>Basic</et:category>
+	<et:content>
+		<![CDATA[
+            <h1>Put your title here</h1>
+        ]]>
+	</et:content>
+	<et:attributes>
+		<![CDATA[
+            {
+               title: 'Insert h1 block',
+               class:'fa fa-th'
+            }
+        ]]>
+	</et:attributes>
+</et:block>
+```
+
+ Custom project blocks can be registered via `com.haulmont.addon.grapesjs.web.gui.components.GjsBlocksRepository` class. 
+ Registered blocks can be added to UI component by `name` attribute. Example `<et:block name="custom block name"/>`.
+ 
+ Please use `class:'fa <fa-icon>'` in block attributes to use Font Awesome icon.

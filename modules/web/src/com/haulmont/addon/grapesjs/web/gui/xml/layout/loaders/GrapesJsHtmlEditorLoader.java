@@ -16,9 +16,7 @@
 
 package com.haulmont.addon.grapesjs.web.gui.xml.layout.loaders;
 
-import com.haulmont.addon.grapesjs.web.gui.components.GjsPlugin;
-import com.haulmont.addon.grapesjs.web.gui.components.GjsPluginsRepository;
-import com.haulmont.addon.grapesjs.web.gui.components.GrapesJsHtmlEditor;
+import com.haulmont.addon.grapesjs.web.gui.components.*;
 import com.haulmont.cuba.core.global.AppBeans;
 import com.haulmont.cuba.core.global.Resources;
 import com.haulmont.cuba.gui.components.Component;
@@ -49,6 +47,7 @@ public class GrapesJsHtmlEditorLoader extends AbstractComponentLoader<GrapesJsHt
 
         loadDisabledBlocks(resultComponent, element);
         loadPlugins(resultComponent, element);
+        loadBlocks(resultComponent, element);
     }
 
     private void loadDisabledBlocks(GrapesJsHtmlEditor component, Element element) {
@@ -63,35 +62,84 @@ public class GrapesJsHtmlEditorLoader extends AbstractComponentLoader<GrapesJsHt
         List<Element> pluginsEls = element.elements("plugin");
         List<GjsPlugin> plugins = new ArrayList<>();
         for (Element pluginEl : pluginsEls) {
+            GjsPlugin plugin = new GjsPlugin();
             if (pluginEl.attribute("name") != null) {
                 String pluginCode = pluginEl.attribute("name").getText();
                 GjsPluginsRepository pluginsRepository = AppBeans.get(GjsPluginsRepository.class);
-                GjsPlugin plugin = pluginsRepository.getPlugin(pluginCode);
+                plugin = pluginsRepository.getPlugin(pluginCode);
                 if (plugin == null) {
                     throw new RuntimeException("Unknown grapes js plugin " + pluginCode);
                 }
-                String options = getPluginOptions(pluginEl);
-                if (options != null) {
-                    plugin = new GjsPlugin(plugin.getName(), options);
-                }
-                plugins.add(plugin);
-            } else {
-                String name = null;
-                String options = null;
-                Element nameEl = pluginEl.element("name");
-                if (nameEl != null) {
-                    name = nameEl.getTextTrim();
-                }
-                if (name == null) {
-                    throw new RuntimeException("Grapes js plugin name should not be empty");
-                }
-                options = getPluginOptions(pluginEl);
-                plugins.add(new GjsPlugin(name, options));
             }
+            Element nameEl = pluginEl.element("name");
+            if (nameEl != null) {
+                plugin.setName(nameEl.getTextTrim());
+            }
+            if (plugin.getName() == null) {
+                throw new RuntimeException("Grapes js plugin name should not be empty");
+            }
+            plugin.setOptions(getPluginOptions(pluginEl));
+            plugins.add(plugin);
 
         }
 
         component.addPlugins(plugins);
+    }
+
+    private void loadBlocks(GrapesJsHtmlEditor component, Element element) {
+        List<Element> pluginsEls = element.elements("block");
+        List<GjsBlock> blocks = new ArrayList<>();
+        for (Element blockEl : pluginsEls) {
+            GjsBlock block = new GjsBlock();
+            if (blockEl.attribute("name") != null) {
+                String pluginCode = blockEl.attribute("name").getText();
+                GjsBlocksRepository pluginsRepository = AppBeans.get(GjsBlocksRepository.class);
+                block = pluginsRepository.getBlock(pluginCode);
+                if (block == null) {
+                    throw new RuntimeException("Unknown grapes js block " + pluginCode);
+                }
+            }
+            Element nameEl = blockEl.element("name");
+            if (nameEl != null) {
+                block.setName(nameEl.getTextTrim());
+            }
+            if (block.getName() == null) {
+                throw new RuntimeException("Grapes js block name should not be empty");
+            }
+            Element labelEl = blockEl.element("label");
+            if (labelEl != null) {
+                block.setLabel(labelEl.getTextTrim());
+            }
+            Element categoryEl = blockEl.element("category");
+            if (categoryEl != null) {
+                block.setCategory(categoryEl.getTextTrim());
+            }
+            Element attributesEl = blockEl.element("attributes");
+            if (attributesEl != null) {
+                block.setAttributes(attributesEl.getTextTrim());
+            }
+            block.setContent(getBlockContent(blockEl));
+            blocks.add(block);
+
+        }
+
+        component.addBlocks(blocks);
+    }
+
+    private String getBlockContent(Element blockEl) {
+        String options = null;
+        Element optionsEl = blockEl.element("content");
+        if (optionsEl != null) {
+            options = optionsEl.getTextTrim();
+        }
+        Element optionsPathEl = blockEl.element("contentPath");
+        if (optionsPathEl != null) {
+            String optionsPath = optionsPathEl.getTextTrim();
+            if (StringUtils.isNotBlank(optionsPath)) {
+                options = loadFromPath(optionsPath);
+            }
+        }
+        return options;
     }
 
     private String getPluginOptions(Element pluginEl) {
@@ -104,13 +152,13 @@ public class GrapesJsHtmlEditorLoader extends AbstractComponentLoader<GrapesJsHt
         if (optionsPathEl != null) {
             String optionsPath = optionsPathEl.getTextTrim();
             if (StringUtils.isNotBlank(optionsPath)) {
-                options = loadOptionsFromPath(optionsPath);
+                options = loadFromPath(optionsPath);
             }
         }
         return options;
     }
 
-    protected String loadOptionsFromPath(String path) {
+    protected String loadFromPath(String path) {
         return AppBeans.get(Resources.class).getResourceAsString(path);
     }
 }

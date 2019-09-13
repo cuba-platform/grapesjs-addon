@@ -30,6 +30,7 @@ public class WebGrapesJsHtmlEditor extends WebAbstractComponent<GrapesJsHtmlEdit
     protected String prevValue;
     protected Collection<String> disabledBlocks;
     protected Collection<GjsPlugin> plugins = new ArrayList<>();
+    protected Collection<GjsBlock> blocks = new ArrayList<>();
 
     public WebGrapesJsHtmlEditor() {
         this.component = new GrapesJsHtmlEditorComponent();
@@ -99,6 +100,29 @@ public class WebGrapesJsHtmlEditor extends WebAbstractComponent<GrapesJsHtmlEdit
     @Override
     public Collection<GjsPlugin> getPlugins() {
         return plugins;
+    }
+
+    @Override
+    public Collection<GjsBlock> getCustomBlocks() {
+        return blocks;
+    }
+
+    @Override
+    public void setCustomBlocks(Collection<GjsBlock> blocks) {
+        this.blocks = blocks;
+        component.setBlocks(blocks);
+    }
+
+    @Override
+    public void addBlocks(Collection<GjsBlock> blocks) {
+        this.blocks.addAll(blocks);
+        component.setBlocks(this.blocks);
+    }
+
+    @Override
+    public void removeCustomBlocks(Collection<GjsBlock> blocks) {
+        this.blocks.removeAll(blocks);
+        component.setBlocks(this.blocks);
     }
 
     @Override
