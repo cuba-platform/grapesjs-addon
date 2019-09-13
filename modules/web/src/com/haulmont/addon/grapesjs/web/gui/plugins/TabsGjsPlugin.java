@@ -14,22 +14,16 @@
  * limitations under the License.
  */
 
-package com.haulmont.addon.grapesjs.web.toolkit.ui.grapesjshtmleditorcomponent;
+package com.haulmont.addon.grapesjs.web.gui.plugins;
 
 import com.haulmont.addon.grapesjs.web.gui.components.GjsPlugin;
-import com.vaadin.shared.ui.JavaScriptComponentState;
+import com.haulmont.cuba.core.global.AppBeans;
+import com.haulmont.cuba.core.global.Resources;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+public class TabsGjsPlugin extends GjsPlugin {
 
-public class GrapesJsHtmlEditorComponentState extends JavaScriptComponentState {
-
-    public List<String> disabledBlocks = new ArrayList<>();
-
-    public String html;
-
-    public Collection<GjsPlugin> plugins;
-
-    public Boolean inlineCss = false;
+    public TabsGjsPlugin() {
+        super("grapesjs-tabs", AppBeans.get(Resources.class).getResourceAsString(
+                "/com/haulmont/addon/grapesjs/web/gui/plugins/grapesjs-tabs.js"));
+    }
 }

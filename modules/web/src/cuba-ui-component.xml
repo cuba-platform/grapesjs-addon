@@ -21,4 +21,16 @@
         <componentLoader>com.haulmont.addon.grapesjs.web.gui.xml.layout.loaders.GrapesJsHtmlEditorLoader</componentLoader>
         <class>com.haulmont.addon.grapesjs.web.gui.components.WebGrapesJsHtmlEditor</class>
     </component>
+
+    <component>
+        <name>grapesJsWebpageHtmlEditor</name>
+        <componentLoader>com.haulmont.addon.grapesjs.web.gui.xml.layout.loaders.GrapesJsWebpageHtmlEditorLoader</componentLoader>
+        <class>com.haulmont.addon.grapesjs.web.gui.components.WebGrapesJsWebpageHtmlEditor</class>
+    </component>
+
+    <component>
+        <name>grapesJsNewsletterHtmlEditor</name>
+        <componentLoader>com.haulmont.addon.grapesjs.web.gui.xml.layout.loaders.GrapesJsNewsletterHtmlEditorLoader</componentLoader>
+        <class>com.haulmont.addon.grapesjs.web.gui.components.WebGrapesJsNewsletterHtmlEditor</class>
+    </component>
 </components>

@@ -21,6 +21,7 @@ import com.haulmont.bali.events.Subscription;
 import com.haulmont.chile.core.model.utils.InstanceUtils;
 import com.haulmont.cuba.web.gui.components.WebAbstractComponent;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.function.Consumer;
 
@@ -28,6 +29,7 @@ public class WebGrapesJsHtmlEditor extends WebAbstractComponent<GrapesJsHtmlEdit
 
     protected String prevValue;
     protected Collection<String> disabledBlocks;
+    protected Collection<GjsPlugin> plugins = new ArrayList<>();
 
     public WebGrapesJsHtmlEditor() {
         this.component = new GrapesJsHtmlEditorComponent();
@@ -74,6 +76,29 @@ public class WebGrapesJsHtmlEditor extends WebAbstractComponent<GrapesJsHtmlEdit
     @Override
     public Collection<String> getDisabledBlocks() {
         return disabledBlocks;
+    }
+
+    @Override
+    public void setPlugins(Collection<GjsPlugin> plugins) {
+        this.plugins = plugins;
+        component.setPlugins(plugins);
+    }
+
+    @Override
+    public void addPlugins(Collection<GjsPlugin> plugins) {
+        this.plugins.addAll(plugins);
+        component.setPlugins(this.plugins);
+    }
+
+    @Override
+    public void removePlugins(Collection<GjsPlugin> plugins) {
+        this.plugins.removeAll(plugins);
+        component.setPlugins(this.plugins);
+    }
+
+    @Override
+    public Collection<GjsPlugin> getPlugins() {
+        return plugins;
     }
 
     @Override

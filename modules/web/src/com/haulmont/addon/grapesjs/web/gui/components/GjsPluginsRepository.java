@@ -16,27 +16,25 @@
 
 package com.haulmont.addon.grapesjs.web.gui.components;
 
-import com.haulmont.cuba.gui.components.Component;
-import com.haulmont.cuba.gui.components.HasValue;
 
-import java.util.Collection;
+public interface GjsPluginsRepository {
 
-/**
- * The GrapesJs HTML editor component
- */
-public interface GrapesJsHtmlEditor extends Component, Component.BelongToFrame, HasValue<String> {
-    String NAME = "grapesJsHtmlEditor";
+    String NAME = "grapesJs_GjsPluginsRepository";
 
-    void setDisabledBlocks(Collection<String> disabledBlocks);
+    /**
+     * Retrieve registered GrapesJs plugin
+     *
+     * @param pluginXsdCode plugin coe from xml screen descriptor
+     * @return GrapesJs plugin descriptor
+     */
+    GjsPlugin getPlugin(String pluginXsdCode);
 
-    Collection<String> getDisabledBlocks();
-
-    void setPlugins(Collection<GjsPlugin> plugins);
-
-    void addPlugins(Collection<GjsPlugin> plugins);
-
-    void removePlugins(Collection<GjsPlugin> plugins);
-
-    Collection<GjsPlugin> getPlugins();
+    /**
+     * Register custom GrapesJs plugin which can be used in xml configuration
+     *
+     * @param pluginXsdCode plugin coe from xml screen descriptor
+     * @param plugin GrapesJs plugin descriptor with name and options
+     */
+    void registerPlugin(String pluginXsdCode, GjsPlugin plugin);
 
 }

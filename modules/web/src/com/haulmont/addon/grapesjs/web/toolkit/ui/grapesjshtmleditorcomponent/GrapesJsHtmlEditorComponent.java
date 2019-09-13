@@ -16,6 +16,7 @@
 
 package com.haulmont.addon.grapesjs.web.toolkit.ui.grapesjshtmleditorcomponent;
 
+import com.haulmont.addon.grapesjs.web.gui.components.GjsPlugin;
 import com.haulmont.cuba.web.widgets.WebJarResource;
 import com.vaadin.annotations.JavaScript;
 import com.vaadin.annotations.StyleSheet;
@@ -35,9 +36,17 @@ import java.util.Collections;
         "grapesjs-custom-code:dist/grapesjs-custom-code.min.js",
         "grapesjs-tabs:dist/grapesjs-tabs.min.js",
         "grapesjs-touch:dist/grapesjs-touch.min.js",
+        "grapesjs-blocks-basic:dist/grapesjs-blocks-basic.min.js",
+        "grapesjs-blocks-flexbox:dist/grapesjs-blocks-flexbox.min.js",
+        "grapesjs-tui-image-editor:dist/grapesjs-tui-image-editor.min.js",
+        "grapesjs-plugin-forms:dist/grapesjs-plugin-forms.min.js",
+        "grapesjs-style-filter:dist/grapesjs-style-filter.min.js",
+        "grapesjs-tooltip:dist/grapesjs-tooltip.min.js",
         "grapesjs-parser-postcss:dist/grapesjs-parser-postcss.min.js",
         "grapesjs-preset-webpage:dist/grapesjs-preset-webpage.min.js",
-        "grapesjs-preset-webpage:dist/grapesjs-preset-webpage.min.css"
+        "grapesjs-preset-webpage:dist/grapesjs-preset-webpage.min.css",
+        "github-com-artf-grapesjs-preset-newsletter:grapesjs-preset-newsletter.min.js",
+        "github-com-artf-grapesjs-preset-newsletter:grapesjs-preset-newsletter.css"
 })
 @JavaScript({"vaadin://ckeditor/ckeditor.js",
         "grapesjshtmleditorcomponent-connector.js"})
@@ -78,6 +87,13 @@ public class GrapesJsHtmlEditorComponent extends AbstractJavaScriptComponent {
         return getState(false).html;
     }
 
+    public void setPlugins(Collection<GjsPlugin> plugins) {
+        getState(false).plugins = plugins;
+    }
+
+    public void setInlineCss(Boolean inlineCss) {
+        getState(false).inlineCss = inlineCss;
+    }
 
     public interface ValueChangeListener {
         void valueChanged(String value);

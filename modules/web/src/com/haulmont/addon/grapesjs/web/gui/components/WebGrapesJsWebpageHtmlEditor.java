@@ -14,22 +14,17 @@
  * limitations under the License.
  */
 
-package com.haulmont.addon.grapesjs.web.toolkit.ui.grapesjshtmleditorcomponent;
+package com.haulmont.addon.grapesjs.web.gui.components;
 
-import com.haulmont.addon.grapesjs.web.gui.components.GjsPlugin;
-import com.vaadin.shared.ui.JavaScriptComponentState;
+import com.haulmont.addon.grapesjs.web.gui.plugins.CustomCodeGjsPlugin;
+import com.haulmont.addon.grapesjs.web.gui.plugins.WebpageGjsPlugin;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+public class WebGrapesJsWebpageHtmlEditor extends WebGrapesJsHtmlEditor implements GrapesJsWebpageHtmlEditor {
 
-public class GrapesJsHtmlEditorComponentState extends JavaScriptComponentState {
-
-    public List<String> disabledBlocks = new ArrayList<>();
-
-    public String html;
-
-    public Collection<GjsPlugin> plugins;
-
-    public Boolean inlineCss = false;
+    public WebGrapesJsWebpageHtmlEditor() {
+        super();
+        plugins.add(new WebpageGjsPlugin());
+        plugins.add(new CustomCodeGjsPlugin());
+        component.setPlugins(plugins);
+    }
 }

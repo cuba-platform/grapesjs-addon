@@ -52,8 +52,10 @@ To install the component in your project do the following steps:
 
 | Platform Version | Add-on Version |
 |------------------|----------------|
-| 6.10.x           | 0.1.8          |
+| 7.1.x            | 0.3.0          |
 | 7.0.x            | 0.2.0          |
+| 6.10.x           | 0.1.8          |
+
 
 5. Click *OK* to save the project properties.
 
@@ -152,3 +154,68 @@ To watch the list of elements on the canvas go to the *Layers* tab. You can hide
 and buttons for changing the screen width.
 
 ![editor-top-panel-buttons](img/editor-top-panel-buttons.png)
+
+ ## 3.6. UI components <a name="components"></a>
+
+GrapesJs addon provides following UI components:
+- `grapesJsHtmlEditor` - base html editor without any applied plugins
+- `grapesJsWebpageHtmlEditor` - html editor suitable for webpage development with applied `webpage, customcode` plugins
+- `grapesJsNewsletterHtmlEditor` - html editor suitable for newletter development with applied `newsletter, customcode` plugins
+
+`grapesJsNewsletterHtmlEditor` component has additional `inlineCss`. If enabled then css classes will be inlined in HTML.
+
+UI components can be extended with plugins using `plugins` tag.
+A plugin can be selected from a list of predefined plugins or can be configured as a new plugin.
+
+Default available plugins:
+- `basicBlocks` - this plugin contains some basic blocks for the GrapesJS editor ([plugin documentation](https://github.com/artf/grapesjs-blocks-basic))
+- `ckeditor` - this plugin replaces the default Rich Text Editor with the one from CKEditor ([plugin documentation](https://github.com/artf/grapesjs-plugin-ckeditor))
+- `customcode` - this plugin adds the possibility to embed custom code ([plugin documentation](https://github.com/artf/grapesjs-custom-code))
+- `flexBlocks` -this plugin adds the Flexbox block which allows creating easily flexible and responsive columns ([plugin documentation](https://github.com/artf/grapesjs-blocks-flexbox))
+- `forms` - this plugin adds some basic form components and blocks to help working with forms easier ([plugin documentation](https://github.com/artf/grapesjs-plugin-forms))
+- `newsletter` - this preset configures GrapesJS to be used as a Newsletter Builder with some unique features and blocks composed specifically for being rendered correctly inside all major email clients ([plugin documentation](https://github.com/artf/grapesjs-preset-newsletter))
+- `postcss` - this plugin enables custom CSS parser via PostCSS ([plugin documentation](https://github.com/artf/grapesjs-parser-postcss))
+- `styleFilter` - add filter type input to the Style Manager in GrapesJS ([plugin documentation](https://github.com/artf/grapesjs-style-filter))
+- `tabs` - simple tabs component plugin for GrapesJS ([plugin documentation](https://github.com/artf/grapesjs-tabs))
+- `tooltip` - simple, CSS only, tooltip component for GrapesJS ([plugin documentation](https://github.com/artf/grapesjs-tooltip))
+- `touch` - this plugin enables touch support for the GrapesJS editor ([plugin documentation](https://github.com/artf/grapesjs-touch))
+- `tuiImageEditor` - add the [TOAST UI Image Editor](https://ui.toast.com/tui-image-editor/) on Image Components in GrapesJS ([plugin documentation](https://github.com/artf/grapesjs-tui-image-editor))
+- `webpage` - this preset configures GrapesJS to be used as a Webpage Builder ([plugin documentation](https://github.com/artf/grapesjs-preset-webpage))
+
+Example:
+```
+<et:grapesJsNewsletterHtmlEditor 
+        id="templateEditor"
+        inlineCss="true"
+        height="100%" width="100%">
+    <et:disabledBlocks>
+        map,tabs
+     </et:disabledBlocks>
+    <et:plugin name="ckeditor">
+        <!-- path to plugin configuration-->
+        <et:optionsPath>/com/haulmont/addon/grapesjs/web/gui/plugins/gjs-plugin-ckeditor.js</et:optionsPath>
+    </et:plugin>
+    <et:plugin name="forms"/>
+    <et:plugin name="flexBlocks"/>
+    <et:plugin name="tuiImageEditor"/>
+    <et:plugin name="customcode"/>
+    <et:plugin name="postcss"/>
+    <et:plugin name="touch">
+        <et:options>
+            <![CDATA[
+                ... custom plugin settings ...
+            ]]>
+        </et:options>
+    </et:plugin>
+    <et:plugin name="styleFilter"/>
+    <et:plugin>
+        <et:name>customPlugin</et:name>
+        <et:options>
+            <![CDATA[
+                ... custom plugin settings ...
+            ]]>
+        </et:options>
+    </et:plugin>
+</et:grapesJsNewsletterHtmlEditor>
+```
+

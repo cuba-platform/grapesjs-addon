@@ -14,22 +14,16 @@
  * limitations under the License.
  */
 
-package com.haulmont.addon.grapesjs.web.toolkit.ui.grapesjshtmleditorcomponent;
+package com.haulmont.addon.grapesjs.web.gui.components;
 
-import com.haulmont.addon.grapesjs.web.gui.components.GjsPlugin;
-import com.vaadin.shared.ui.JavaScriptComponentState;
+/**
+ * The GrapesJs HTML editor component with applied newsletter preset
+ */
+public interface GrapesJsNewsletterHtmlEditor extends GrapesJsHtmlEditor {
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+    String NAME = "grapesJsNewsletterHtmlEditor";
 
-public class GrapesJsHtmlEditorComponentState extends JavaScriptComponentState {
+    Boolean getInlineCss();
 
-    public List<String> disabledBlocks = new ArrayList<>();
-
-    public String html;
-
-    public Collection<GjsPlugin> plugins;
-
-    public Boolean inlineCss = false;
+    void setInlineCss(Boolean inlineCss);
 }
