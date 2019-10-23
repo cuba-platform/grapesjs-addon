@@ -3,20 +3,24 @@
     <a href="https://travis-ci.org/cuba-platform/grapesjs-addon"><img src="https://travis-ci.org/cuba-platform/grapesjs-addon.svg?branch=master" alt="Build Status" title=""></a>
 </p>
 
-- [1. Overview](#overview)
-- [2. Installation](#installaton)
-  - [2.1. Adding the Repository and the Component in CUBA Studio](#adding-studio)
-  - [2.2. Adding Editor in the Screen](#adding-screen)
-- [3. Using Editor](#using-editor)
-  - [3.1. The Blocks Tab](#blocks)
-  - [3.2. The Style Manager Tab](#style)
-  - [3.3. The Trait Manager Tab](#trait)
-  - [3.4. The Layers Tab](#layers)
-  - [3.5. The Top Panel Buttons](#buttons)
-  - [3.6. UI components](#components)
-  - [3.7. Custom blocks](#custom-blocks)
+# GrapesJS HTML Editor
 
-# 1.Overview <a name="overview"></a>
+- [Overview](#overview)
+- [Installation](#installation)
+  - [Add-on Installation](#add-on-installation)
+    - [From the Marketplace](#from-the-marketplace)
+    - [By Coordinates](#by-coordinates)
+  - [Adding HTML Editor to the Screen](#adding-html-editor-to-the-screen)
+- [Usage](#usage)
+  - [The Blocks Tab](#blocks)
+  - [The Style Manager Tab](#style)
+  - [The Trait Manager Tab](#trait)
+  - [The Layers Tab](#layers)
+  - [The Top Panel Buttons](#buttons)
+  - [UI Components](#components)
+  - [Custom Blocks](#custom-blocks)
+
+# Overview <a name="overview"></a>
 
 The add-on provides a visual HTML editor based on a [GrapesJs](https://grapesjs.com/) JavaScript library with the extensive set of HTML elements. It allows building HTML templates without any knowledge of coding. All you need is to drag an element into the canvas. The wide range of options enables independent styling of any element inside the canvas.
 
@@ -28,42 +32,58 @@ Key features:
 
 ![html-editor](img/editor.gif)
 
-See [sample application](https://github.com/cuba-platform/grapesjs-addon-demo), using this component.
+See [sample application](https://github.com/cuba-platform/grapesjs-addon-demo) using this component.
 
-# 2. Installation <a name="installation"></a>
+# Installation <a name="installation"></a>
 
-To use the component you need to install it in your project and then add the editor to the screen. The complete add-ons installation guide see in [CUBA Platform documentation](https://doc.cuba-platform.com/manual-latest/app_components_usage.html).
+To use the component you need to install it in your project and then add HTML editor to the screen.
 
-## 2.1. Adding the Repository and the Component in CUBA Studio <a name="adding-studio"></a>
+Then, if necessary you can extend an application theme: find *Themes* in the CUBA project tree, right click and go *Manage Themes -> Create Theme Extension*.
 
-To install the component in your project do the following steps:
+## Add-on Installation <a name="add-on-installation"></a>
 
-1. Open your application in CUBA Studio.
+The add-on can be added to your project in one of the ways described below. Installation from the Marketplace is the simplest way. The last version of the add-on compatible with the used version of the platform will be installed.
+Also, you can install the add-on by coordinates choosing the required version of the add-on from the table.
 
-2. Click *Edit* in the *Project properties* panel.
+In case you want to install the add-on by manual editing or by building from sources see the complete add-ons installation guide in [CUBA Platform documentation](https://doc.cuba-platform.com/manual-latest/manual.html#app_components_usage).
 
-3. On the *App components* panel click the *Plus* button next to *Custom components*.
+### From the Marketplace <a name="from-the-marketplace"></a>
 
-4. Paste the add-on coordinates in the corresponding field as follows: *group:name:version*.
+1. Open your application in CUBA Studio. Check the latest version of CUBA Studio on the [CUBA Platform site](https://www.cuba-platform.com/download/previous-studio/).
+2. Go to *CUBA -> Marketplace* in the main menu.
 
-  - Artifact group: *com.haulmont.addon.grapesjs*;
-  - Artifact name: *grapesjs-global*;
-  - Version: *add-on version*.
+ ![marketplace](img/marketplace.png)
 
- When specifying the component version, you should select the one, which is compatible with the platform version used in your project.
+3. Find the GrapesJS add-on there.
 
-| Platform Version | Add-on Version |
+ ![addons](img/addons.png)
+
+4. Click *Install* and apply the changes.
+The add-on corresponding to the used platform version will be installed.
+
+### By coordinates <a name="by-coordinates"></a>
+
+1. Open your application in CUBA Studio. Check the latest version of CUBA Studio on the [CUBA Platform site](https://www.cuba-platform.com/download/previous-studio/).
+2. Go to *CUBA -> Marketplace* in the main menu.
+3. Click the icon in the upper-right corner.
+
+ ![by-coordinates](img/by-coordinates.png)
+
+4. Paste the add-on coordinates in the corresponding field as follows:
+
+ `com.haulmont.addon.grapesjs:grapesjs-global:<add-on version>`
+
+ where `<add-on version>` is compatible with the used version of the CUBA platform.
+
+ | Platform Version | Add-on Version |
 |------------------|----------------|
 | 7.1.x            | 0.3.0          |
 | 7.0.x            | 0.2.0          |
 | 6.10.x           | 0.1.8          |
 
+5. Click *Install* and apply the changes. The add-on will be installed to your project.
 
-5. Click *OK* to save the project properties.
-
-6. Then extend application theme, if necessary. Expand *Manage theme* and select *Create theme extension*.
-
-## 2.2. Adding Editor in the Screen <a name="adding-screen"></a>
+## Adding HTML Editor to the Screen <a name="adding-html-editor-to-the-screen"></a>
 
 To use the `GrapesJS` component in your screen, you need to add the special scheme `http://schemas.haulmont.com/grapesjs/ui-component.xsd` in the XML descriptor of the screen and then add a namespace like `grapesjs` for the schema. The schema contains information about the `grapesJsHtmlEditor` tag.
 
@@ -85,11 +105,11 @@ Look at the example of usage:
 
 `grapesjs` UI component provides `setValue(String value)` and `getValue()` methods to set and get HTML content for the component.
 
-# 3. Using Editor <a name="using-editor"></a>
+# Usage <a name="usage"></a>
 
 You can add, set and delete elements from the canvas. In addition, you can import and export HTML and CSS code. Here is a description of setting panels of the editor.
 
-## 3.1. The Blocks Tab <a name="blocks"></a>
+## The Blocks Tab <a name="blocks"></a>
 
 After opening the editor in your project you can see the *Blocks* tab. The following elements are enabled for adding:
 
@@ -122,26 +142,26 @@ in the *Forms* section
 
 Move elements on the canvas to add.
 
-## 3.2. The Style Manager Tab <a name="style"></a>
+## The Style Manager Tab <a name="style"></a>
 
 You can set the properties of the elements. Select the element and go to the *Style Manager* tab.
 
 ![editor-style-manager](img/editor-style-manager.png)
 
 
-## 3.3. The Trait Manager Tab <a name="trait"></a>
+## The Trait Manager Tab <a name="trait"></a>
 
 You can define parameters of an element. Select the element and go to the *Trait Manager* tab.
 
 ![editor-trait-manager](img/editor-trait-manager.png)
 
-## 3.4. The Layers Tab <a name="layers"></a>
+## The Layers Tab <a name="layers"></a>
 
 To watch the list of elements on the canvas go to the *Layers* tab. You can hide elements on the canvas while editing.
 
 ![editor-layers](img/editor-layers.png)
 
- ## 3.5. The Top Panel Buttons <a name="buttons"></a>
+ ## The Top Panel Buttons <a name="buttons"></a>
 
  The following buttons on the *Top Panel* are available:
 - the *Show borders* button
@@ -157,7 +177,7 @@ and buttons for changing the screen width.
 
 ![editor-top-panel-buttons](img/editor-top-panel-buttons.png)
 
- ## 3.6. UI components <a name="components"></a>
+ ## UI Components <a name="components"></a>
 
 GrapesJs addon provides following UI components:
 - `grapesJsHtmlEditor` - base html editor without any applied plugins
@@ -187,8 +207,8 @@ Default available plugins:
 Custom project plugins can be registered via `com.haulmont.addon.grapesjs.web.gui.components.GjsPluginsRepository` class.
 
 Example:
-```
-<et:grapesJsNewsletterHtmlEditor 
+```xml
+<et:grapesJsNewsletterHtmlEditor
         id="templateEditor"
         inlineCss="true"
         height="100%" width="100%">
@@ -223,18 +243,18 @@ Example:
 </et:grapesJsNewsletterHtmlEditor>
 ```
 
- ## 3.7. Custom blocks <a name="custom-blocks"></a>
- 
+ ## Custom Blocks <a name="custom-blocks"></a>
+
  Custom blocks can be added to the component using `block` tag with the following parameters:
  - *name* - unique block id
  - *label* - name of the block
  - *category* - group the block inside a catgegory
  - *content* - HTML content
- - *contentPath* - path to HTML content 
+ - *contentPath* - path to HTML content
  - *attributes* - block attributes
- 
+
  Block example:
- ```
+ ```xml
 <et:block>
 	<et:name>h1-block</et:name>
 	<et:label>Heading</et:label>
@@ -255,7 +275,7 @@ Example:
 </et:block>
 ```
 
- Custom project blocks can be registered via `com.haulmont.addon.grapesjs.web.gui.components.GjsBlocksRepository` class. 
+ Custom project blocks can be registered via `com.haulmont.addon.grapesjs.web.gui.components.GjsBlocksRepository` class.
  Registered blocks can be added to UI component by `name` attribute. Example `<et:block name="custom block name"/>`.
- 
+
  Please use `class:'fa <fa-icon>'` in block attributes to use Font Awesome icon.
