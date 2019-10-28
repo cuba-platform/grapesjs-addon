@@ -188,7 +188,7 @@ configure(webModule) {
         compileOnly(servletApi)
         compile(globalModule)
         //        Webjars
-        compile('org.webjars.npm:grapesjs:0.15.5') {
+        compile('org.webjars.npm:grapesjs:0.15.8') {
             exclude group: 'org.webjars.npm', module: 'keymaster'
         }
         compile('org.webjars.bower:keymaster:1.6.3')

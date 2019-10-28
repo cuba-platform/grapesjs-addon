@@ -14,6 +14,9 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
         forceClass: false,
         components: connector.getState().html,
         showOffsets: 1,
+        domComponents: {
+            draggableComponents: false
+        },
         assetManager: {
             embedAsBase64: 1,
             //          assets: images
