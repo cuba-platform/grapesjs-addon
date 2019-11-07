@@ -90,13 +90,17 @@ public class GjsBlock implements Serializable, Cloneable {
 
     @Override
     public GjsBlock clone() {
-        GjsBlock clone = new GjsBlock();
-        clone.setName(this.name);
-        clone.setAttributes(this.attributes);
-        clone.setCategory(this.category);
-        clone.setLabel(this.label);
-        clone.setContent(this.content);
-        return clone;
+        try {
+            GjsBlock clone = (GjsBlock) super.clone();
+            clone.setName(this.name);
+            clone.setAttributes(this.attributes);
+            clone.setCategory(this.category);
+            clone.setLabel(this.label);
+            clone.setContent(this.content);
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new IllegalStateException("Clone not supported", e);
+        }
     }
 
 

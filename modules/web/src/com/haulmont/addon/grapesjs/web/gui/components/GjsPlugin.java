@@ -59,9 +59,13 @@ public class GjsPlugin implements Serializable, Cloneable {
 
     @Override
     public GjsPlugin clone() {
-        GjsPlugin clone = new GjsPlugin();
-        clone.setName(this.name);
-        clone.setOptions(this.options);
-        return clone;
+        try {
+            GjsPlugin clone = (GjsPlugin) super.clone();
+            clone.setName(this.name);
+            clone.setOptions(this.options);
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new IllegalStateException("Clone not supported", e);
+        }
     }
 }
