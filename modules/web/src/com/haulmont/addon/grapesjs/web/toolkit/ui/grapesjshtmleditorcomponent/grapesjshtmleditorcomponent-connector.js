@@ -62,6 +62,41 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
     // Show borders by default
     pn.getButton('options', 'sw-visibility').set('active', 1);
 
+    pn.addButton('options', [{
+        id: 'preview',
+        className: 'fa fa-eye icon-blank',
+        attributes: {title: 'Preview'},
+        command: e => e.runCommand('preview'),
+      }, {
+        id: 'undo',
+        className: 'fa fa-undo',
+        attributes: {title: 'Undo'},
+        command: function(){ editor.runCommand('core:undo') }
+      },{
+        id: 'redo',
+        className: 'fa fa-repeat',
+        attributes: {title: 'Redo'},
+        command: function(){ editor.runCommand('core:redo') }
+      },{
+        id: 'clear-all',
+        className: 'fa fa-trash icon-blank',
+        attributes: {title: 'Clear canvas'},
+        command: {
+          run: function(editor, sender) {
+            sender && sender.set('active', false);
+            if(confirm('Are you sure to clean the canvas?')){
+              editor.DomComponents.clear();
+              setTimeout(function(){
+                clear(editor)
+                var tmpl = getHtml(editor, state);
+                if (tmpl) {
+                    connector.valueChanged(tmpl);
+                }
+              },0)
+            }
+          }
+        }
+      }]);
 
     // Store and load events
     editor.on('storage:load', function(e) {
@@ -111,17 +146,23 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
 
     editor.on('change:changesCount', (component, argument) => {
         var tmpl = getHtml(editor, state);
-        connector.valueChanged(tmpl);
+        if (tmpl) {
+            connector.valueChanged(tmpl);
+        }
     });
 
     editor.on('undo', (component, argument) => {
         var tmpl = getHtml(editor, state);
-        connector.valueChanged(tmpl);
+        if (tmpl) {
+            connector.valueChanged(tmpl);
+        }
     });
 
     editor.on('redo', (component, argument) => {
         var tmpl = getHtml(editor, state);
-        connector.valueChanged(tmpl);
+        if (tmpl) {
+            connector.valueChanged(tmpl);
+        }
     });
 
     connector.onStateChange = function() {
