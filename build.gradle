@@ -15,7 +15,7 @@
  */
 
 buildscript {
-    ext.cubaVersion = '7.1.0'
+    ext.cubaVersion = rootProject.hasProperty('cubaVersion') ? rootProject['cubaVersion'] : '7.2-SNAPSHOT'
     repositories {
 
         mavenLocal()
@@ -60,7 +60,7 @@ apply(plugin: 'addon-gradle-plugin')
 cuba {
     artifact {
         group = 'com.haulmont.addon.grapesjs'
-        version = '0.4'
+        version = '0.5'
         isSnapshot = true
     }
     ide {
