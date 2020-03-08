@@ -24,6 +24,7 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
         styleManager: {
             clearProperties: 1
         },
+        colorPicker: { appendTo: 'parent', offset: { top: 26, left: -155, }, },
         plugins: [],
         pluginsOpts: {},
 
