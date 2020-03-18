@@ -35,6 +35,8 @@ public class GrapesJsNewsletterHtmlEditorLoader extends GrapesJsHtmlEditorLoader
     private void loadInlineCss(GrapesJsNewsletterHtmlEditor component, Element element) {
         if (element.attribute("inlineCss") != null) {
             component.setInlineCss(Boolean.valueOf(element.attribute("inlineCss").getValue()));
+        } else {
+            component.setInlineCss(true);
         }
     }
 }

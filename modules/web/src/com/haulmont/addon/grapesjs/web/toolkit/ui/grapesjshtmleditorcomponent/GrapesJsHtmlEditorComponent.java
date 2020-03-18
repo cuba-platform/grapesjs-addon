@@ -104,6 +104,10 @@ public class GrapesJsHtmlEditorComponent extends AbstractJavaScriptComponent {
         void valueChanged(String value);
     }
 
+    public interface CommandResultListener {
+        void onResult(String result);
+    }
+
     public interface FileUploadListener {
         void fileUploaded(String name, String fileBase64);
     }
@@ -118,6 +122,14 @@ public class GrapesJsHtmlEditorComponent extends AbstractJavaScriptComponent {
 
     public String getValue() {
         return getState(false).html;
+    }
+
+    public void runCommand(String command) {
+        callFunction("runCommand",command);
+    }
+
+    public void stopCommand(String command) {
+        callFunction("stopCommand",command);
     }
 
     public ValueChangeListener getListener() {

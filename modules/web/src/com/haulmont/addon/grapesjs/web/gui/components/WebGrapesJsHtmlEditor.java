@@ -126,6 +126,16 @@ public class WebGrapesJsHtmlEditor extends WebAbstractComponent<GrapesJsHtmlEdit
     }
 
     @Override
+    public void runCommand(String command) {
+        component.runCommand(command);
+    }
+
+    @Override
+    public void stopCommand(String command) {
+        component.stopCommand(command);
+    }
+
+    @Override
     public void setDisabledBlocks(Collection<String> disabledBlocks) {
         this.disabledBlocks = disabledBlocks;
         component.setDisabledBlocks(disabledBlocks);

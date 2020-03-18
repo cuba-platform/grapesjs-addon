@@ -36,4 +36,6 @@ public class GrapesJsHtmlEditorComponentState extends JavaScriptComponentState {
 
     public Boolean inlineCss = false;
 
+    public String command;
+
 }

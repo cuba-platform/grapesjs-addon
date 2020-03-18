@@ -12,6 +12,7 @@
 - [Usage](#usage)
   - [Adding HTML Editor to the Screen](#adding-html-editor-to-the-screen)
   - [UI Components](#ui-components)
+  - [Commands](#commands)
   - [Custom Blocks](#custom-blocks)
   - [User Interface of HTML editor](#user-interface-of-html-editor)
     - [The Blocks Tab](#blocks)
@@ -174,6 +175,12 @@ Example:
    </et:plugin>
 </et:grapesJsNewsletterHtmlEditor>
 ```
+
+## Commands <a name="commands"></a>
+`GrapesJsHtmlEditor` component provides two methods to run and stop commands
+
+- `runCommand(String command)` - run command
+- `stopCommand(String command)` - stop command
 
 ## Custom Blocks <a name="custom-blocks"></a>
 

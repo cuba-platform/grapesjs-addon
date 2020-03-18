@@ -170,6 +170,14 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
         var state = connector.getState();
         editor.setComponents(state.html);
     }
+
+    connector.runCommand = function (command) {
+        editor.runCommand(command)
+    };
+
+    connector.stopCommand = function (command) {
+            editor.stopCommand(command)
+        };
 }
 
 function getHtml(editor, state) {
