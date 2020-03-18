@@ -211,7 +211,7 @@ configure(webModule) {
         compile('org.webjars.npm:grapesjs-tooltip:0.1.5')
 
         compile ('org.webjars.bowergithub.mootools:slick:1.1.7')
-        compile('org.webjars:ckeditor:4.11.1')
+        compile('org.webjars:ckeditor:4.14.0')
 
     }
 
