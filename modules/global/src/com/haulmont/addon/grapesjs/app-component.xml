@@ -24,6 +24,8 @@
         <property name="cuba.persistenceConfig" value="+com/haulmont/addon/grapesjs/persistence.xml"/>
         <property name="cuba.metadataConfig" value="+com/haulmont/addon/grapesjs/metadata.xml"/>
         <property name="cuba.viewsConfig" value="+com/haulmont/addon/grapesjs/views.xml"/>
+        <property name="cuba.creditsConfig"
+                  value="+com/haulmont/addon/grapesjs/credits.xml"/>
     </module>
     <module name="core" dependsOn="global" blocks="core">
         <artifact name="grapesjs-core" appJar="true"/>
