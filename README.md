@@ -75,7 +75,7 @@ The add-on corresponding to the used platform version will be installed.
 
  | Platform Version | Add-on Version |
 |------------------|----------------|
-| 7.2.x            | 0.5.1    |
+| 7.2.x            | 0.5.3          |
 | 7.1.x            | 0.4.0          |
 | 7.0.x            | 0.2.0          |
 | 6.10.x           | 0.1.8          |
