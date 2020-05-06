@@ -19,7 +19,7 @@
 
     <items>
 
-        <item name="GrapesJS" web="https://grapesjs.com/" license="bsd-3">
+        <item name="GrapesJS" web="https://grapesjs.com/">
             <license><![CDATA[
         Copyright (c) 2017-current, Artur Arseniev
 All rights reserved.
