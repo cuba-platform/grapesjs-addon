@@ -191,8 +191,10 @@ configure(webModule) {
         compile('org.webjars.npm:grapesjs:0.16.2') {
             exclude group: 'org.webjars.npm', module: 'keymaster'
             exclude group: 'org.webjars.npm', module: 'cash-dom'
+            exclude group: 'org.webjars.npm', module: 'babel__runtime'
         }
         compile('org.webjars.bower:keymaster:1.6.3')
+        compile('org.webjars.npm:babel__runtime:7.9.2')
         compile 'org.webjars.npm:github-com-kenwheeler-cash:2.3.9'
         compile('org.webjars.npm:grapesjs-plugin-ckeditor:0.0.9')
         compile('org.webjars.npm:grapesjs-custom-code:0.1.1')
