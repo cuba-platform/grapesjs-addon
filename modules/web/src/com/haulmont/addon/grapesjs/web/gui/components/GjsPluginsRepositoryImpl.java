@@ -40,7 +40,6 @@ public class GjsPluginsRepositoryImpl implements GjsPluginsRepository {
         registeredPlugins.put("newsletter", new NewsletterGjsPlugin());
         registeredPlugins.put("postcss", new PostCssGjsPlugin());
         registeredPlugins.put("tabs", new TabsGjsPlugin());
-        registeredPlugins.put("touch", new TouchGjsPlugin());
         registeredPlugins.put("webpage", new WebpageGjsPlugin());
         registeredPlugins.put("basicBlocks", new BasicBlocksGjsPlugin());
         registeredPlugins.put("flexBlocks", new FlexBlocksGjsPlugin());

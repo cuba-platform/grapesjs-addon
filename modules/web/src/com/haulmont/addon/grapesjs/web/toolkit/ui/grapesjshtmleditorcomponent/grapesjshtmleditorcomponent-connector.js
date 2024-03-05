@@ -1,4 +1,4 @@
-com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsHtmlEditorComponent = function() {
+com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsHtmlEditorComponent = function () {
     var connector = this;
     var element = connector.getElement();
     var state = connector.getState();
@@ -24,7 +24,7 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
         styleManager: {
             clearProperties: 1
         },
-        colorPicker: { appendTo: 'parent', offset: { top: 26, left: -155, }, },
+        colorPicker: {appendTo: 'parent', offset: {top: 26, left: -155,},},
         plugins: [],
         pluginsOpts: {},
 
@@ -32,7 +32,7 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
 
     var pluginsSize = defaultConfig.plugins.length;
     if (state.plugins != null) {
-        state.plugins.forEach(function(item, i, arr) {
+        state.plugins.forEach(function (item, i, arr) {
             var pluginName = item.name;
             var pluginOptions = item.options;
             defaultConfig.plugins[pluginsSize + i] = pluginName;
@@ -49,10 +49,10 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
 
     var pn = editor.Panels;
     var modal = editor.Modal;
-    editor.Commands.add('canvas-clear', function() {
+    editor.Commands.add('canvas-clear', function () {
         if (confirm('Are you sure to clean the canvas?')) {
             var comps = editor.DomComponents.clear();
-            setTimeout(function() {
+            setTimeout(function () {
                 localStorage.clear()
             }, 0)
             var tmpl = getHtml(editor, state);
@@ -68,57 +68,54 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
         className: 'fa fa-eye icon-blank',
         attributes: {title: 'Preview'},
         command: e => e.runCommand('preview'),
-      }, {
+    }, {
         id: 'undo',
         className: 'fa fa-undo',
         attributes: {title: 'Undo'},
-        command: function(){ editor.runCommand('core:undo') }
-      },{
+        command: function () {
+            editor.runCommand('core:undo')
+        }
+    }, {
         id: 'redo',
         className: 'fa fa-repeat',
         attributes: {title: 'Redo'},
-        command: function(){ editor.runCommand('core:redo') }
-      },{
+        command: function () {
+            editor.runCommand('core:redo')
+        }
+    }, {
         id: 'clear-all',
         className: 'fa fa-trash icon-blank',
         attributes: {title: 'Clear canvas'},
         command: {
-          run: function(editor, sender) {
-            sender && sender.set('active', false);
-            if(confirm('Are you sure to clean the canvas?')){
-              editor.DomComponents.clear();
-              setTimeout(function(){
-                clear(editor)
-                var tmpl = getHtml(editor, state);
-                if (tmpl) {
-                    connector.valueChanged(tmpl);
+            run: function (editor, sender) {
+                sender && sender.set('active', false);
+                if (confirm('Are you sure to clean the canvas?')) {
+                    editor.DomComponents.clear();
+                    setTimeout(function () {
+                        clear(editor)
+                        var tmpl = getHtml(editor, state);
+                        if (tmpl) {
+                            connector.valueChanged(tmpl);
+                        }
+                    }, 0)
                 }
-              },0)
             }
-          }
         }
-      }]);
+    }]);
 
     // Store and load events
-    editor.on('storage:load', function(e) {
+    editor.on('storage:load', function (e) {
         console.log('Loaded ', e)
     });
-    editor.on('storage:store', function(e) {
+    editor.on('storage:store', function (e) {
         console.log('Stored ', e)
     });
-
-    CKEDITOR.dtd.$editable.span = 1
-    CKEDITOR.dtd.$editable.a = 1
-    CKEDITOR.dtd.$editable.strong = 1
-    CKEDITOR.dtd.$editable.b = 1
-    CKEDITOR.dtd.$editable.i = 1
-    CKEDITOR.dtd.$editable.li = 1
 
     let cmdm = editor.Commands;
     var opt = {};
 
     // Do stuff on load
-    editor.on('load', function() {
+    editor.on('load', function () {
         var $ = grapesjs.$;
 
         // Load and show settings and style manager
@@ -132,11 +129,11 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
         openBlocksBtn && openBlocksBtn.set('active', 1);
     });
 
-    connector.getState().disabledBlocks.forEach(function(entry) {
+    connector.getState().disabledBlocks.forEach(function (entry) {
         editor.BlockManager.getAll().remove(entry);
     });
 
-    state.blocks.forEach(function(item, i, arr) {
+    state.blocks.forEach(function (item, i, arr) {
         editor.BlockManager.add(item.name, {
             label: item.label,
             content: item.content,
@@ -166,7 +163,7 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
         }
     });
 
-    connector.onStateChange = function() {
+    connector.onStateChange = function () {
         var state = connector.getState();
         editor.setComponents(state.html);
     }
@@ -176,8 +173,22 @@ com_haulmont_addon_grapesjs_web_toolkit_ui_grapesjshtmleditorcomponent_GrapesJsH
     };
 
     connector.stopCommand = function (command) {
-            editor.stopCommand(command)
-        };
+        editor.stopCommand(command)
+    };
+
+    editor.onReady(function () {
+        // Wait for CKEDITOR load
+        setTimeout(() => {
+            if (CKEDITOR) {
+                CKEDITOR.dtd.$editable.span = 1
+                CKEDITOR.dtd.$editable.a = 1
+                CKEDITOR.dtd.$editable.strong = 1
+                CKEDITOR.dtd.$editable.b = 1
+                CKEDITOR.dtd.$editable.i = 1
+                CKEDITOR.dtd.$editable.li = 1
+            }
+        }, 200);
+    });
 }
 
 function getHtml(editor, state) {
@@ -189,8 +200,8 @@ function getHtml(editor, state) {
 }
 
 function clear(editor) {
-     var comps = editor.DomComponents.clear();
-     localStorage.clear();
+    var comps = editor.DomComponents.clear();
+    localStorage.clear();
 }
 
 function strictEvalFunc(code) {
