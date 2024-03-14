@@ -60,7 +60,7 @@ apply(plugin: 'addon-gradle-plugin')
 cuba {
     artifact {
         group = 'com.haulmont.addon.grapesjs'
-        version = '0.5'
+        version = '0.6'
         isSnapshot = true
     }
     ide {
@@ -187,34 +187,20 @@ configure(webModule) {
     dependencies {
         compileOnly(servletApi)
         compile(globalModule)
-        //        Webjars
-        compile('org.webjars.npm:grapesjs:0.16.2') {
-            exclude group: 'org.webjars.npm', module: 'keymaster'
-            exclude group: 'org.webjars.npm', module: 'cash-dom'
-            exclude group: 'org.webjars.npm', module: 'babel__runtime'
-        }
-        compile('org.webjars.bower:keymaster:1.6.3')
-        compile('org.webjars.npm:babel__runtime:7.9.2')
-        compile 'org.webjars.npm:github-com-kenwheeler-cash:2.3.9'
-        compile('org.webjars.npm:grapesjs-plugin-ckeditor:0.0.9')
-        compile('org.webjars.npm:grapesjs-custom-code:0.1.1')
-        compile('org.webjars.npm:grapesjs-tabs:0.1.2')
-        compile('org.webjars.npm:grapesjs-touch:0.1.1')
-        compile('org.webjars.npm:grapesjs-parser-postcss:0.1.1')
-        compile('org.webjars.npm:grapesjs-preset-webpage:0.1.10')
-        compile('org.webjars.npm:github-com-artf-grapesjs-preset-newsletter:0.2.20'){
-            exclude group: 'org.webjars.npm', module: 'slick'
-        }
-        compile('org.webjars.npm:grapesjs-blocks-basic:0.1.8')
-        compile('org.webjars.npm:grapesjs-blocks-flexbox:0.1.1')
-        compile('org.webjars.npm:grapesjs-tui-image-editor:0.1.2')
-        compile('org.webjars.npm:grapesjs-plugin-forms:1.0.5')
-        compile('org.webjars.npm:grapesjs-style-filter:0.1.1')
-        compile('org.webjars.npm:grapesjs-tooltip:0.1.5')
-
-        compile ('org.webjars.bowergithub.mootools:slick:1.1.7')
-        compile('org.webjars:ckeditor:4.14.0')
-
+        // Webjars
+        compile('org.webjars.npm:grapesjs:0.21.8')
+        compile('org.webjars.npm:grapesjs-plugin-ckeditor:1.0.1')
+        compile('org.webjars.npm:grapesjs-custom-code:1.0.2')
+        compile('org.webjars.npm:grapesjs-tabs:1.0.6')
+        compile('org.webjars.npm:grapesjs-parser-postcss:1.0.3')
+        compile('org.webjars.npm:grapesjs-preset-webpage:1.0.3')
+        compile('org.webjars.npm:grapesjs-preset-newsletter:1.0.2')
+        compile('org.webjars.npm:grapesjs-blocks-basic:1.0.2')
+        compile('org.webjars.npm:grapesjs-blocks-flexbox:1.0.1')
+        compile('org.webjars.npm:grapesjs-tui-image-editor:1.0.2')
+        compile('org.webjars.npm:grapesjs-plugin-forms:2.0.6')
+        compile('org.webjars.npm:grapesjs-style-filter:1.0.2')
+        compile('org.webjars.npm:grapesjs-tooltip:0.1.8')
     }
 
     task webArchive(type: Zip) {

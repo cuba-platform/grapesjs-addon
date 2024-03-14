@@ -23,7 +23,7 @@ import com.haulmont.cuba.core.global.Resources;
 public class NewsletterGjsPlugin extends GjsPlugin {
 
     public NewsletterGjsPlugin() {
-        super("gjs-preset-newsletter", AppBeans.get(Resources.class).getResourceAsString(
+        super("grapesjs-preset-newsletter", AppBeans.get(Resources.class).getResourceAsString(
                 "/com/haulmont/addon/grapesjs/web/gui/plugins/gjs-preset-newsletter.js"));
     }
 }

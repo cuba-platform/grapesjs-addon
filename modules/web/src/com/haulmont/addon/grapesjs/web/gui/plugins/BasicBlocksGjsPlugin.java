@@ -21,6 +21,6 @@ import com.haulmont.addon.grapesjs.web.gui.components.GjsPlugin;
 public class BasicBlocksGjsPlugin extends GjsPlugin {
 
     public BasicBlocksGjsPlugin() {
-        super("grapesjs-blocks-basic", null);
+        super("gjs-blocks-basic", null);
     }
 }

@@ -23,7 +23,7 @@ import com.haulmont.cuba.core.global.Resources;
 public class WebpageGjsPlugin extends GjsPlugin {
 
     public WebpageGjsPlugin() {
-        super("gjs-preset-webpage", AppBeans.get(Resources.class).getResourceAsString(
+        super("grapesjs-preset-webpage", AppBeans.get(Resources.class).getResourceAsString(
                 "/com/haulmont/addon/grapesjs/web/gui/plugins/gjs-preset-webpage.js"));
     }
 }

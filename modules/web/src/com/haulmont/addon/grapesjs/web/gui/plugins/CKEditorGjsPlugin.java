@@ -23,7 +23,7 @@ import com.haulmont.cuba.core.global.Resources;
 public class CKEditorGjsPlugin extends GjsPlugin {
 
     public CKEditorGjsPlugin() {
-        super("gjs-plugin-ckeditor", AppBeans.get(Resources.class).getResourceAsString(
+        super("grapesjs-plugin-ckeditor", AppBeans.get(Resources.class).getResourceAsString(
                 "/com/haulmont/addon/grapesjs/web/gui/plugins/gjs-plugin-ckeditor.js"));
     }
 }
